@@ -64,6 +64,7 @@ export class UnlockPad extends InteractableObject {
     finishUnlocking() {
         this.cancelUnlocking();
         let prefab = instantiate(this.unlockedPrefab);
+        // TODO: we might need a custom position
         prefab.setPosition(this.node.getPosition());
         prefab.parent = this.node.parent;
         this.destroy();
