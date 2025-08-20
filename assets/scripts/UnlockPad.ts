@@ -1,7 +1,8 @@
-import { _decorator, CCFloat, CCInteger, Collider2D, Component, Contact2DType, instantiate, Node, Prefab } from 'cc';
+import { _decorator, CCFloat, CCInteger, Collider2D, Component, Contact2DType, instantiate, math, Node, Prefab } from 'cc';
 import { InteractableObject } from './InteractableObject';
 import { Character } from './Character';
 import { SetWithEvents } from './containers/SetWithEvent';
+import { GameManager } from './GameManager';
 const { ccclass, property, type } = _decorator;
 
 @ccclass('UnlockPad')
@@ -13,17 +14,17 @@ export class UnlockPad extends InteractableObject {
     @type(CCInteger)
     requiredCoin: number = 50;
 
-    @type(CCFloat)
-    unlockingDuration: number = 5;
+    @type(CCInteger)
+    coinPerChecking: number = 1;
 
     readonly CHECKING_INTERVAL = 0.1;
 
-    _isUnlocking: boolean = false;
-    _remainingUnlockingDuration: number = 5;
+    private _isUnlocking: boolean = false;
+
+    private _gainedCoin: number = 0;
 
     start(): void {
         super.start();
-        this._remainingUnlockingDuration = this.unlockingDuration;
     }
 
     onInteractingCharacterAdded(container: SetWithEvents<Character>, character: Character): void {
@@ -43,16 +44,21 @@ export class UnlockPad extends InteractableObject {
     }
 
     processUnlocking() {
-        this._remainingUnlockingDuration -= this.CHECKING_INTERVAL;
-        if (this._remainingUnlockingDuration <= 0)
+        let GM = GameManager.instance;
+        let spendingCoinAmount = Math.min(this.coinPerChecking, this.requiredCoin - this._gainedCoin);
+        if (GM.money >= spendingCoinAmount)
         {
-            this.finishUnlocking();
+            GM.spendMoney(spendingCoinAmount);
+            this._gainedCoin += spendingCoinAmount;
+            if (this._gainedCoin >= this.requiredCoin)
+            {
+                this.finishUnlocking();
+            }
         }
     }
 
     startUnlocking() {
         this._isUnlocking = true;
-        this._remainingUnlockingDuration = this.unlockingDuration;
         this.schedule(this.processUnlocking, this.CHECKING_INTERVAL);
     }
 

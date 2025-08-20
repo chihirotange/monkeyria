@@ -16,7 +16,7 @@ export class GameManager extends Component {
 		this._money = v;
 		GameManager._eventTarget.emit('money-changed', this.money);
 	}
-	_money: number = 0;
+	private _money: number = 0;
 
 	onLoad() {
 		if (GameManager._instance && GameManager._instance !== this) {
