@@ -22,7 +22,7 @@ export class InteractableObject extends Component {
     }
 
     update(deltaTime: number) {
-
+        // test
     }
 
     setupCollisionCheck() {
