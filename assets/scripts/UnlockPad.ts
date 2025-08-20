@@ -51,6 +51,7 @@ export class UnlockPad extends InteractableObject {
     }
 
     startUnlocking() {
+        console.log("Start unlocking")
         this._isUnlocking = true;
         this._remainingUnlockingDuration = this.unlockingDuration;
         this.schedule(this.processUnlocking, this.CHECKING_INTERVAL);
