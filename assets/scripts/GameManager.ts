@@ -19,8 +19,8 @@ export class GameManager extends Component {
 		}
 		GameManager._instance = this;
 		// Optionally make this node persistent
-	if (!this.node.isValid) return;
-	director.addPersistRootNode(this.node);
+		if (!this.node.isValid) return;
+		director.addPersistRootNode(this.node);
 	}
 
 	static get instance(): GameManager {
@@ -28,8 +28,8 @@ export class GameManager extends Component {
 	}
 
 	addMoney(amount: number) {
-	this.money += amount;
-	GameManager._eventTarget.emit('money-changed', this.money);
+		this.money += amount;
+		GameManager._eventTarget.emit('money-changed', this.money);
 	}
 
 	spendMoney(amount: number): boolean {
@@ -57,13 +57,13 @@ export class GameManager extends Component {
 ' Note: Access the GameManager singleton via GameManager.instance
 
 class GameManager {
-    +addMoney(amount: number): void
-    +spendMoney(amount: number): boolean
-    +resetMoney(): void
-    --
-    +money: number
-    ' Singleton accessor
-    {static} +instance: GameManager
+	+addMoney(amount: number): void
+	+spendMoney(amount: number): boolean
+	+resetMoney(): void
+	--
+	+money: number
+	' Singleton accessor
+	{static} +instance: GameManager
 }
 
 note top of GameManager

@@ -1,5 +1,6 @@
 import { _decorator, Component, EventKeyboard, Input, input, KeyCode, Vec2 } from 'cc';
 import { CharacterMovement } from './CharacterMovement';
+import { GameManager } from './GameManager';
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('PlayerController')
@@ -47,16 +48,16 @@ export class PlayerController extends Component {
         
         // Example: Pause game with P key
         if (event.keyCode === KeyCode.KEY_P) {
-            if (GameManager.instance.isPaused) {
-                GameManager.instance.resumeGame();
-            } else {
-                GameManager.instance.pauseGame();
-            }
+            // if (GameManager.instance.isPaused) {
+            //     GameManager.instance.resumeGame();
+            // } else {
+            //     GameManager.instance.pauseGame();
+            // }
         }
         
         // Example: Add score with SPACE key
         if (event.keyCode === KeyCode.SPACE) {
-            GameManager.instance.addScore(10);
+            // GameManager.instance.addScore(10);
         }
     }
 
