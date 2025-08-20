@@ -57,7 +57,7 @@ export class PlayerController extends Component {
         
         // Example: Add score with SPACE key
         if (event.keyCode === KeyCode.SPACE) {
-            // GameManager.instance.addScore(10);
+            GameManager.instance.addMoney(10);
         }
     }
 

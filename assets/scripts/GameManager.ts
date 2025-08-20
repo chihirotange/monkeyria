@@ -9,7 +9,14 @@ export class GameManager extends Component {
 	private static _eventTarget: EventTarget = new EventTarget();
 
 	@property({ tooltip: 'Player money' })
-	money: number = 0;
+	get money(): number {
+		return this._money;
+	}
+	private set money(v: number) {
+		this._money = v;
+		GameManager._eventTarget.emit('money-changed', this.money);
+	}
+	_money: number = 0;
 
 	onLoad() {
 		if (GameManager._instance && GameManager._instance !== this) {
@@ -29,13 +36,11 @@ export class GameManager extends Component {
 
 	addMoney(amount: number) {
 		this.money += amount;
-		GameManager._eventTarget.emit('money-changed', this.money);
 	}
 
 	spendMoney(amount: number): boolean {
 		if (this.money >= amount) {
 			this.money -= amount;
-			GameManager._eventTarget.emit('money-changed', this.money);
 			return true;
 		}
 		return false;
@@ -43,7 +48,6 @@ export class GameManager extends Component {
 
 	resetMoney() {
 		this.money = 0;
-		GameManager._eventTarget.emit('money-changed', this.money);
 	}
 
 	// Delegate accessor for listeners
