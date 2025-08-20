@@ -1,4 +1,4 @@
-import { _decorator, Component, EventKeyboard, Input, input, KeyCode, Node, SystemEvent, Vec2 } from 'cc';
+import { _decorator, Component, EventKeyboard, Input, input, KeyCode, Vec2 } from 'cc';
 import { CharacterMovement } from './CharacterMovement';
 const { ccclass, property, requireComponent } = _decorator;
 
