@@ -44,6 +44,20 @@ export class PlayerController extends Component {
         if (this.watchingKeys.has(event.keyCode)) {
             this.pressedKeys.add(event.keyCode);
         }
+        
+        // Example: Pause game with P key
+        if (event.keyCode === KeyCode.KEY_P) {
+            if (GameManager.instance.isPaused) {
+                GameManager.instance.resumeGame();
+            } else {
+                GameManager.instance.pauseGame();
+            }
+        }
+        
+        // Example: Add score with SPACE key
+        if (event.keyCode === KeyCode.SPACE) {
+            GameManager.instance.addScore(10);
+        }
     }
 
     protected onKeyUp(event: EventKeyboard) {

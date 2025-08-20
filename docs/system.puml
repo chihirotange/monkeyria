@@ -1,0 +1,23 @@
+@startuml
+' Note: Access the GameManager singleton via GameManager.instance
+
+class GameManager {
+    +addMoney(amount: number): void
+    +spendMoney(amount: number): boolean
+    +resetMoney(): void
+    --
+    +money: number
+    ' Singleton accessor
+    {static} +instance: GameManager
+}
+
+note top of GameManager
+Access the singleton:
+GameManager.instance
+end note
+
+GameManager : +addMoney(amount) - Increase player money by amount
+GameManager : +spendMoney(amount) - Decrease money if enough, return true/false
+GameManager : +resetMoney() - Set money to zero
+
+@enduml
