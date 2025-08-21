@@ -13,11 +13,9 @@ export class CameraFollow extends Component {
     private _currentPos: Vec3 = new Vec3();
 
     start() {
-        console.log('hello');
     }
 
     update(deltaTime: number) {
-        console.log('follow');
         if (!this.target) return;
         this.target.getWorldPosition(this._targetPos);
         this.node.getWorldPosition(this._currentPos);
