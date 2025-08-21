@@ -577,6 +577,7 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "period": 0.1,
     "unlockedPrefab": {
       "__uuid__": "1bfac797-ba59-41b0-a64a-d5b2de300a90",
       "__expectedType__": "cc.Prefab"
@@ -938,7 +939,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60.01813211463167,
+      "width": 60.01857969967984,
       "height": 25.2
     },
     "_anchorPoint": {
@@ -971,7 +972,7 @@
     "_string": "Money",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 23.944444444444443,
+    "_actualFontSize": 24.944444444444443,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
