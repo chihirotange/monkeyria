@@ -20,7 +20,6 @@ export class HUD extends Component {
     }
 
     onMoneyChanged(newMoney: number) {
-        console.log("on money changed");
         this.moneyLabel.string = newMoney.toString();
     }
 }
