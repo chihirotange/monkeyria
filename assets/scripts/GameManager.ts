@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, director, EventTarget } from 'cc';
+import { EDITOR } from 'cc/env';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -9,10 +10,12 @@ export class GameManager extends Component {
 	private static _eventTarget: EventTarget = new EventTarget();
 
 	@property({ tooltip: 'Player money' })
+	defaultMoney: number = 0;
+
 	get money(): number {
 		return this._money;
 	}
-	private set money(v: number) {
+	set money(v: number) {
 		this._money = v;
 		GameManager._eventTarget.emit('money-changed', this.money);
 	}
@@ -28,6 +31,10 @@ export class GameManager extends Component {
 		// Optionally make this node persistent
 		if (!this.node.isValid) return;
 		director.addPersistRootNode(this.node);
+	}
+
+	protected start(): void {
+		this.money = this.defaultMoney;
 	}
 
 	static get instance(): GameManager {
