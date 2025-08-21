@@ -4,7 +4,6 @@ const { ccclass, property } = _decorator;
 @ccclass('CharacterMovement')
 export class CharacterMovement extends Component {
     start() {
-
     }
 
     @property(CCFloat)
