@@ -1,0 +1,155 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "31531b40-68f6-405b-bac9-d0fe0e270d77",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "51199": {
+      "importer": "sprite-frame",
+      "uuid": "31531b40-68f6-405b-bac9-d0fe0e270d77@51199",
+      "displayName": "",
+      "id": "51199",
+      "name": "spr_deco_coracle_land",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 32,
+        "height": 30,
+        "rawWidth": 32,
+        "rawHeight": 30,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "d38d10ce-cd09-4230-97e9-3530c8d006b1@6c48a",
+        "atlasUuid": "31531b40-68f6-405b-bac9-d0fe0e270d77",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5a13f": {
+      "importer": "sprite-frame",
+      "uuid": "31531b40-68f6-405b-bac9-d0fe0e270d77@5a13f",
+      "displayName": "",
+      "id": "5a13f",
+      "name": "spr_deco_tree_01_strip4-1",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 30,
+        "width": 32,
+        "height": 34,
+        "rawWidth": 32,
+        "rawHeight": 34,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "d38d10ce-cd09-4230-97e9-3530c8d006b1@6c48a",
+        "atlasUuid": "31531b40-68f6-405b-bac9-d0fe0e270d77",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bc369": {
+      "importer": "sprite-frame",
+      "uuid": "31531b40-68f6-405b-bac9-d0fe0e270d77@bc369",
+      "displayName": "",
+      "id": "bc369",
+      "name": "spr_deco_tree_02_strip4-0",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 64,
+        "width": 28,
+        "height": 43,
+        "rawWidth": 28,
+        "rawHeight": 43,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "d38d10ce-cd09-4230-97e9-3530c8d006b1@6c48a",
+        "atlasUuid": "31531b40-68f6-405b-bac9-d0fe0e270d77",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "tree.png",
+    "format": 3,
+    "uuid": "31531b40-68f6-405b-bac9-d0fe0e270d77",
+    "textureUuid": "d38d10ce-cd09-4230-97e9-3530c8d006b1@6c48a"
+  }
+}
