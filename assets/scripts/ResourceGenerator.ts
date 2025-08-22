@@ -2,6 +2,7 @@ import { _decorator, CCFloat, CCInteger, Component, Node } from 'cc';
 import { ItemType } from './ItemType';
 import { PeriodInteractableObject } from './interactable/PeriodInteractableObject';
 import { Character } from './Character';
+import { ResourceInventory } from './ResourceInventory';
 const { ccclass, property, type } = _decorator;
 
 @ccclass('ResourceGenerator')
@@ -15,10 +16,12 @@ export class ResourceGenerator extends PeriodInteractableObject {
     @type(CCFloat)
     generatingInterval: number = 2;
 
-    private _currentAmount: number = 0;
+    private _inventory: ResourceInventory = null;
 
     start(): void {
         super.start();
+        this._inventory = this.getComponent(ResourceInventory);
+        this._inventory.setResourceLimit(this.maxAmount);
         this.startGenerating();
     }
 
@@ -31,23 +34,27 @@ export class ResourceGenerator extends PeriodInteractableObject {
     }
 
     generateResource() {
-        if (this._currentAmount < this.maxAmount)
-        {
-            this._currentAmount++;
-        }
+        this._inventory.takeResource(this.itemType, 1);
     }
 
     processInterval(character: Character) {
         if (!character) {
             return;
         }
-        if (this._currentAmount == 0)
+
+        let characterInventory = character.getComponent(ResourceInventory);
+        if (!characterInventory)
         {
             return;
         }
-        
-        let takenAmount = character.takeResource(this.itemType, 1);
-        this._currentAmount -= takenAmount;
+
+        let toBeTaken = this._inventory.spendResource(this.itemType, 1);
+        let takenAmount = characterInventory.takeResource(this.itemType, toBeTaken, true);
+        let leftOver = toBeTaken - takenAmount;
+        if (leftOver > 0)
+        {
+            this._inventory.takeResource(this.itemType, leftOver, true);
+        }
     }
 }
 
