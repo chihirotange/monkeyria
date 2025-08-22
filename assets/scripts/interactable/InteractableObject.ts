@@ -1,10 +1,10 @@
 import { _decorator, Collider2D, Component, Contact2DType, IPhysics2DContact, Node } from 'cc';
-import { Character } from './Character';
-import { ContainerEventType, SetWithEvents } from './containers/SetWithEvent';
+import { Character } from '../Character';
+import { ContainerEventType, SetWithEvents } from '../containers/SetWithEvent';
 const { ccclass, property } = _decorator;
 
 @ccclass('InteractableObject')
-export class InteractableObject extends Component {
+export abstract class InteractableObject extends Component {
 
     _colliderComp: Collider2D = null;
 
@@ -19,10 +19,6 @@ export class InteractableObject extends Component {
         this._interactingCharacters.eventTarget.on(ContainerEventType.ItemRemoved, function (container, item) {
             this.onInteractingCharacterRemoved(container, item);
         }.bind(this));
-    }
-
-    update(deltaTime: number) {
-        // test
     }
 
     setupCollisionCheck() {
@@ -46,13 +42,15 @@ export class InteractableObject extends Component {
         }
     }
 
-    onInteractingCharacterAdded(container: SetWithEvents<Character>, character: Character)
-    {
+    onInteractingCharacterAdded(container: SetWithEvents<Character>, character: Character) {
     }
 
-    onInteractingCharacterRemoved(container: SetWithEvents<Character>, character: Character)
-    {
+    onInteractingCharacterRemoved(container: SetWithEvents<Character>, character: Character) {
     }
+
+    abstract beginInteraction(character: Character): void;
+
+    abstract endInteraction(character: Character): void;
 }
 
 
