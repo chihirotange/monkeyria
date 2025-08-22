@@ -45,8 +45,9 @@ export class ResourceGenerator extends PeriodInteractableObject {
         {
             return;
         }
-        // character.takeResource(this.itemType, 1);
-        this._currentAmount--;
+        
+        let takenAmount = character.takeResource(this.itemType, 1);
+        this._currentAmount -= takenAmount;
     }
 }
 
