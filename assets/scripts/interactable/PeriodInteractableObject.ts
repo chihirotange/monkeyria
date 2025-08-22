@@ -6,7 +6,10 @@ const { ccclass, type, property } = _decorator;
 @ccclass('PeriodInteractableObject')
 export abstract class PeriodInteractableObject extends InteractableObject {
 
-    @type(CCFloat)
+    @property({
+        type: CCFloat,
+        group: "InteractableObject"
+    })
     period: number = 1;
 
     private _scheduledCallbacks: Map<Character, Function> = new Map();

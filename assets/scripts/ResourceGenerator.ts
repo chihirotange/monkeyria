@@ -2,11 +2,14 @@ import { _decorator, CCFloat, CCInteger, Component, Node } from 'cc';
 import { ItemType } from './ItemType';
 import { PeriodInteractableObject } from './interactable/PeriodInteractableObject';
 import { Character } from './Character';
-import { ResourceInventory } from './ResourceInventory';
-const { ccclass, property, type } = _decorator;
+import { IHasInventory, ResourceInventory } from './ResourceInventory';
+import { ResourceBin } from './ResourceBin';
+const { ccclass, property, type, requireComponent } = _decorator;
 
 @ccclass('ResourceGenerator')
-export class ResourceGenerator extends PeriodInteractableObject {
+@requireComponent(ResourceBin)
+export class ResourceGenerator extends Component {
+    
     @type(ItemType)
     itemType: ItemType = ItemType.None;
     
@@ -17,10 +20,9 @@ export class ResourceGenerator extends PeriodInteractableObject {
     generatingInterval: number = 2;
 
     private _inventory: ResourceInventory = null;
-
+    
     start(): void {
-        super.start();
-        this._inventory = this.getComponent(ResourceInventory);
+        this._inventory = this.getComponent(ResourceBin).getInventory();
         this._inventory.setResourceLimit(this.maxAmount);
         this.startGenerating();
     }
@@ -35,26 +37,6 @@ export class ResourceGenerator extends PeriodInteractableObject {
 
     generateResource() {
         this._inventory.depositResource(this.itemType, 1);
-    }
-
-    processInterval(character: Character) {
-        if (!character) {
-            return;
-        }
-
-        let characterInventory = character.getComponent(ResourceInventory);
-        if (!characterInventory)
-        {
-            return;
-        }
-
-        let toBeTaken = this._inventory.withdrawResource(this.itemType, 1);
-        let takenAmount = characterInventory.depositResource(this.itemType, toBeTaken, true);
-        let leftOver = toBeTaken - takenAmount;
-        if (leftOver > 0)
-        {
-            this._inventory.depositResource(this.itemType, leftOver, true);
-        }
     }
 }
 

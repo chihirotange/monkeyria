@@ -1,11 +1,17 @@
 import { _decorator, Collider2D, Component, Contact2DType, IPhysics2DContact, Node } from 'cc';
 import { InteractableObject } from './interactable/InteractableObject';
+import { IHasInventory, ResourceInventory } from './ResourceInventory';
 const { ccclass, property } = _decorator;
 
 @ccclass('Character')
-export class Character extends Component {
+export class Character extends Component implements IHasInventory {
 
     _collider: Collider2D = null;
+    private _inventory: ResourceInventory = null;
+
+    protected onLoad(): void {
+        this._inventory = new ResourceInventory();
+    }
 
     start() {
         this._collider = this.getComponent(Collider2D);
@@ -31,5 +37,9 @@ export class Character extends Component {
     endInteracting(interactable: InteractableObject) {
         if (!interactable) { return; }
         interactable.endInteraction(this);
+    }
+
+    getInventory(): ResourceInventory {
+        return this._inventory;
     }
 }

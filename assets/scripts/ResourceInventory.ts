@@ -1,9 +1,7 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator } from 'cc';
 import { ItemType } from './ItemType';
-const { ccclass, property } = _decorator;
 
-@ccclass('ResourceInventory')
-export class ResourceInventory extends Component {
+export class ResourceInventory {
 
     private _resourceMap: Map<ItemType, number> = new Map<ItemType, number>();
     private _resourceLimit: number = 99; // total limit for all resources
@@ -22,9 +20,9 @@ export class ResourceInventory extends Component {
     }
 
     /**
-     * Try to take resource. Returns the amount actually taken (0 if none).
-     * If allowPartial is false, only take if the full amount fits.
-     * If allowPartial is true (default), take as much as possible.
+     * Try to deposit resource. Returns the amount actually depositn (0 if none).
+     * If allowPartial is false, only deposit if the full amount fits.
+     * If allowPartial is true (default), deposit as much as possible.
      */
     depositResource(itemType: ItemType, amount: number, allowPartial: boolean = true): number {
         if (!itemType || amount <= 0) {
@@ -48,8 +46,8 @@ export class ResourceInventory extends Component {
     }
 
     /**
-     * Spend resource. If allowPartial is true, spend as much as possible (if > 0), and return the actual spent amount.
-     * If allowPartial is false, only spend if enough is available, and return the spent amount (0 if not enough).
+     * Withdraw resource. If allowPartial is true, withdraw as much as possible (if > 0), and return the actual spent amount.
+     * If allowPartial is false, only withdraw if enough is available, and return the spent amount (0 if not enough).
      */
     withdrawResource(itemType: ItemType, amount: number, allowPartial: boolean = false): number {
         if (!itemType || amount <= 0) {
@@ -71,4 +69,8 @@ export class ResourceInventory extends Component {
         this._resourceMap.set(itemType, current - amount); this._resourceMap.set(itemType, current - amount);
         return amount;
     }
+}
+
+export interface IHasInventory {
+    getInventory(): ResourceInventory;
 }
