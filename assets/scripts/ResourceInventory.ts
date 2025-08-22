@@ -26,7 +26,7 @@ export class ResourceInventory extends Component {
      * If allowPartial is false, only take if the full amount fits.
      * If allowPartial is true (default), take as much as possible.
      */
-    takeResource(itemType: ItemType, amount: number, allowPartial: boolean = true): number {
+    depositResource(itemType: ItemType, amount: number, allowPartial: boolean = true): number {
         if (!itemType || amount <= 0) {
             return 0;
         }
@@ -51,7 +51,7 @@ export class ResourceInventory extends Component {
      * Spend resource. If allowPartial is true, spend as much as possible (if > 0), and return the actual spent amount.
      * If allowPartial is false, only spend if enough is available, and return the spent amount (0 if not enough).
      */
-    spendResource(itemType: ItemType, amount: number, allowPartial: boolean = false): number {
+    withdrawResource(itemType: ItemType, amount: number, allowPartial: boolean = false): number {
         if (!itemType || amount <= 0) {
             return 0;
         }

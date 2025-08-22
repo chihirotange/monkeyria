@@ -34,7 +34,7 @@ export class ResourceGenerator extends PeriodInteractableObject {
     }
 
     generateResource() {
-        this._inventory.takeResource(this.itemType, 1);
+        this._inventory.depositResource(this.itemType, 1);
     }
 
     processInterval(character: Character) {
@@ -48,12 +48,12 @@ export class ResourceGenerator extends PeriodInteractableObject {
             return;
         }
 
-        let toBeTaken = this._inventory.spendResource(this.itemType, 1);
-        let takenAmount = characterInventory.takeResource(this.itemType, toBeTaken, true);
+        let toBeTaken = this._inventory.withdrawResource(this.itemType, 1);
+        let takenAmount = characterInventory.depositResource(this.itemType, toBeTaken, true);
         let leftOver = toBeTaken - takenAmount;
         if (leftOver > 0)
         {
-            this._inventory.takeResource(this.itemType, leftOver, true);
+            this._inventory.depositResource(this.itemType, leftOver, true);
         }
     }
 }
