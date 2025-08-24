@@ -2,6 +2,12 @@ import { __private, _decorator, CCBoolean, Component, Node } from 'cc';
 const { ccclass, property, type } = _decorator;
 
 export abstract class State {
+    system: StateMachine; // Add this line
+
+    constructor(system: StateMachine) {
+        this.system = system;
+    }
+
     onStateEnter(prevState?: State): void { }
     onStateExit(nextState?: State): void { }
     onTransitionTo(nextState: State): void { }
@@ -22,7 +28,7 @@ export class StateMachine extends Component {
     update(deltaTime: number) {
         if (this._pendingTransition) {
             const { toCtor, prevState } = this._pendingTransition;
-            const nextState = new toCtor();
+            const nextState = new toCtor(this); // Pass system
             nextState.onStateEnter(prevState);
             prevState.onTransitionTo(nextState);
             this._currentState = nextState;
@@ -69,7 +75,7 @@ export class StateMachine extends Component {
         if (!this._initialStateConstructor) {
             throw new Error('Initial state not set. Please specify isInitialState=true when adding a state.');
         }
-        this._currentState = new this._initialStateConstructor();
+        this._currentState = new this._initialStateConstructor(this); // Pass system
         this._currentState.onStateEnter();
     }
 
