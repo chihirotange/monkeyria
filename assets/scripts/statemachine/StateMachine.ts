@@ -25,6 +25,35 @@ export class StateMachine extends Component {
         prevState: State
     } = null;
 
+    // Blackboard for dynamic variables
+    private _blackboard: Map<string, any> = new Map();
+
+    /**
+     * Set a value in the blackboard.
+     * @param key The variable name.
+     * @param value The value to set.
+     */
+    setVariable(key: string, value: any): void {
+        this._blackboard.set(key, value);
+    }
+
+    /**
+     * Get a value from the blackboard.
+     * @param key The variable name.
+     * @returns The value, or undefined if not set.
+     */
+    getVariable<T = any>(key: string): T | undefined {
+        return this._blackboard.get(key);
+    }
+
+    /**
+     * Remove a variable from the blackboard.
+     * @param key The variable name.
+     */
+    removeVariable(key: string): void {
+        this._blackboard.delete(key);
+    }
+
     update(deltaTime: number) {
         if (this._pendingTransition) {
             const { toCtor, prevState } = this._pendingTransition;
