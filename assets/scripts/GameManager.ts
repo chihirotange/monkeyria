@@ -1,6 +1,10 @@
-import { _decorator, Component, Node, director, EventTarget } from 'cc';
+import { _decorator, Component, Node, director, EventTarget, game, Game, PhysicsSystem2D, EPhysics2DDrawFlags } from 'cc';
 import { EDITOR } from 'cc/env';
 const { ccclass, property } = _decorator;
+
+game.on(Game.EVENT_GAME_INITED, () => {
+	PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Shape;
+})
 
 @ccclass('GameManager')
 export class GameManager extends Component {

@@ -1,8 +1,6 @@
-import { _decorator, CCFloat, CCInteger, Component, Node } from 'cc';
+import { _decorator, CCFloat, CCInteger, Component } from 'cc';
 import { ItemType } from './ItemType';
-import { PeriodInteractableObject } from './interactable/PeriodInteractableObject';
-import { Character } from './Character';
-import { IHasInventory, ResourceInventory } from './ResourceInventory';
+import { ResourceInventory } from './ResourceInventory';
 import { ResourceBin } from './ResourceBin';
 const { ccclass, property, type, requireComponent } = _decorator;
 
@@ -19,11 +17,14 @@ export class ResourceGenerator extends Component {
     @type(CCFloat)
     generatingInterval: number = 2;
 
-    private _inventory: ResourceInventory = null;
-    
-    start(): void {
+    protected _inventory: ResourceInventory = null;
+
+    protected onLoad(): void {
         this._inventory = this.getComponent(ResourceBin).getInventory();
         this._inventory.setResourceLimit(this.maxAmount);
+    }
+    
+    start(): void {
         this.startGenerating();
     }
 

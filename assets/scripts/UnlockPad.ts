@@ -48,6 +48,6 @@ export class UnlockPad extends PeriodInteractableObject {
         // TODO: we might need a custom position
         prefab.setPosition(this.node.getPosition());
         prefab.parent = this.node.parent;
-        this.destroy();
+        this.node.destroy();
     }
 }

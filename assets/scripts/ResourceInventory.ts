@@ -1,10 +1,16 @@
 import { _decorator } from 'cc';
 import { ItemType } from './ItemType';
 
+type ResourceEventCallback = (itemType: ItemType, amount: number) => void;
+
 export class ResourceInventory {
 
     private _resourceMap: Map<ItemType, number> = new Map<ItemType, number>();
     private _resourceLimit: number = 99; // total limit for all resources
+
+    // Event callbacks
+    private _onResourceAdded: ResourceEventCallback[] = [];
+    private _onResourceWithdrawn: ResourceEventCallback[] = [];
 
     setResourceLimit(limit: number) {
         if (limit < 0) return;
@@ -17,6 +23,20 @@ export class ResourceInventory {
             total += amount;
         }
         return total;
+    }
+
+    /**
+     * Subscribe to resource added event.
+     */
+    onResourceAdded(callback: ResourceEventCallback) {
+        this._onResourceAdded.push(callback);
+    }
+
+    /**
+     * Subscribe to resource withdrawn event.
+     */
+    onResourceWithdrawn(callback: ResourceEventCallback) {
+        this._onResourceWithdrawn.push(callback);
     }
 
     /**
@@ -42,6 +62,10 @@ export class ResourceInventory {
             return 0;
         }
         this._resourceMap.set(itemType, current + addAmount);
+
+        // Fire event
+        this._onResourceAdded.forEach(cb => cb(itemType, addAmount));
+
         return addAmount;
     }
 
@@ -60,14 +84,29 @@ export class ResourceInventory {
             }
             const spent = Math.min(current, amount);
             this._resourceMap.set(itemType, current - spent);
+
+            // Fire event
+            this._onResourceWithdrawn.forEach(cb => cb(itemType, spent));
+
             return spent;
         } else {
             if (current < amount) {
                 return 0;
             }
         }
-        this._resourceMap.set(itemType, current - amount); this._resourceMap.set(itemType, current - amount);
+        this._resourceMap.set(itemType, current - amount);
+
+        // Fire event
+        this._onResourceWithdrawn.forEach(cb => cb(itemType, amount));
+
         return amount;
+    }
+
+    /**
+     * Get the current amount of a specific resource type.
+     */
+    getResourceAmount(itemType: ItemType): number {
+        return this._resourceMap.get(itemType) || 0;
     }
 }
 

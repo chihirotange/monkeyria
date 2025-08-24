@@ -6,7 +6,8 @@ export enum ItemType
     Banana,
     Corn,
     Egg,
-    Milk
+    Milk,
+    Carrot
 }
 
 Enum(ItemType)
