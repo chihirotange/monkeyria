@@ -20,16 +20,15 @@ export class CharacterAnimationController extends Component {
         if (this._movementComponent) {
             let direction = this._movementComponent.direction;
             let magSqr = direction.lengthSqr();
+            let currentScale = this.node.getScale();
+            let scaleX = currentScale.x;
             if (magSqr > 0) {
                 this.playState(this._runState);
+                scaleX = Math.abs(scaleX);
+                scaleX *= direction.x < 0 ? -1 : 1;
             }
             else {
                 this.playState(this._idleState);
-            }
-            let currentScale = this.node.getScale();
-            let scaleX = Math.abs(currentScale.x);
-            if (direction.x < 0) {
-                scaleX *= -1;
             }
             this.node.setScale(new Vec3(scaleX, currentScale.y, currentScale.z));
         }
