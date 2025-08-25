@@ -1,5 +1,5 @@
 import { __private, _decorator, Component, Node } from 'cc';
-import { State, StateMachine } from '../statemachine/StateMachine';
+import { State, StateConstructor, StateMachine } from '../statemachine/StateMachine';
 import { IdleState } from './states/IdleState';
 import { FindDestinationState } from './states/FindDestinationState';
 import { MoveToDestinationState } from './states/MoveToDestinationState';
@@ -19,12 +19,12 @@ export class GroceryClerk extends StateMachine {
             .addTransition(WaitForInteractionState, FindDestinationState);
     }
 
-    canChangeState<T extends State>(from: __private.__types_globals__Constructor<T>, to: __private.__types_globals__Constructor<T>): boolean {
+    canChangeState<T extends State>(from: StateConstructor, to: StateConstructor): boolean {
         if (from == IdleState && to == FindDestinationState) {
-            // should wait for sometimes
+            return (this._currentState as IdleState).idleDuration <= 0;
         }
         if (from == FindDestinationState && to == MoveToDestinationState) {
-            // found the destination
+            return (this._currentState as FindDestinationState).found;
         }
         if (from == MoveToDestinationState && to == WaitForInteractionState) {
             // reached destination
@@ -33,6 +33,10 @@ export class GroceryClerk extends StateMachine {
             // done interaction
         }
         return false;
+    }
+
+    protected start(): void {
+        this.startSystem();
     }
 }
 

@@ -14,14 +14,16 @@ export abstract class State {
     update(deltaTime: number): void { }
 }
 
+export type StateConstructor = new (...args: any[]) => State;
+
 @ccclass('StateMachine')
 export class StateMachine extends Component {
-    protected _stateConstructors: Set<__private.__types_globals__Constructor<State>> = new Set();
+    protected _stateConstructors: Set<StateConstructor> = new Set();
     protected _currentState: State = null;
-    protected _initialStateConstructor: __private.__types_globals__Constructor<State> = null;
-    protected _transitions: Map<__private.__types_globals__Constructor<State>, Set<__private.__types_globals__Constructor<State>>> = new Map();
+    protected _initialStateConstructor: StateConstructor = null;
+    protected _transitions: Map<StateConstructor, Set<StateConstructor>> = new Map();
     protected _pendingTransition: {
-        toCtor: __private.__types_globals__Constructor<State>,
+        toCtor: StateConstructor,
         prevState: State
     } = null;
 
@@ -67,7 +69,7 @@ export class StateMachine extends Component {
             if (this._currentState) {
                 this._currentState.update(deltaTime);
 
-                const fromCtor = this._currentState.constructor as __private.__types_globals__Constructor<State>;
+                const fromCtor = this._currentState.constructor as StateConstructor;
                 const possibleTransitions = this._transitions.get(fromCtor);
                 if (possibleTransitions) {
                     for (const toCtor of possibleTransitions) {
@@ -84,7 +86,7 @@ export class StateMachine extends Component {
 
     }
 
-    addState<T extends State>(stateConstructor: __private.__types_globals__Constructor<T>, isInitialState: boolean = false) {
+    addState<T extends State>(stateConstructor: StateConstructor, isInitialState: boolean = false) {
         this._stateConstructors.add(stateConstructor);
         if (isInitialState) {
             this._initialStateConstructor = stateConstructor;
@@ -92,7 +94,7 @@ export class StateMachine extends Component {
         return this;
     }
 
-    addTransition<T extends State>(from: __private.__types_globals__Constructor<T>, to: __private.__types_globals__Constructor<T>) {
+    addTransition<T extends State>(from: StateConstructor, to: StateConstructor) {
         if (!this._transitions.has(from)) {
             this._transitions.set(from, new Set());
         }
@@ -108,7 +110,7 @@ export class StateMachine extends Component {
         this._currentState.onStateEnter();
     }
 
-    canChangeState<T extends State>(from: __private.__types_globals__Constructor<T>, to: __private.__types_globals__Constructor<T>): boolean {
+    canChangeState<T extends State>(from: StateConstructor, to: StateConstructor): boolean {
         return false;
     }
 }
