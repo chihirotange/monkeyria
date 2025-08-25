@@ -7,11 +7,11 @@
       "embeddedPlayerGroups": []
     },
     "_native": "",
-    "sample": 60,
+    "sample": 30,
     "speed": 0.5,
     "wrapMode": 2,
     "enableTrsBlending": false,
-    "_duration": 0.21666666666666667,
+    "_duration": 0.5,
     "_hash": 500763545,
     "_tracks": [
       {
@@ -62,12 +62,13 @@
     "__type__": "cc.ObjectCurve",
     "_times": [
       0,
-      0.03333333333333333,
       0.06666666666666667,
-      0.1,
       0.13333333333333333,
-      0.16666666666666666,
-      0.2
+      0.2,
+      0.26666666666666666,
+      0.3333333333333333,
+      0.4,
+      0.4666666666666667
     ],
     "_values": [
       {
@@ -96,6 +97,10 @@
       },
       {
         "__uuid__": "26a972e2-2eb1-4b67-85e5-40b9a2468e8c@5eff1",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "26a972e2-2eb1-4b67-85e5-40b9a2468e8c@312c2",
         "__expectedType__": "cc.SpriteFrame"
       }
     ]

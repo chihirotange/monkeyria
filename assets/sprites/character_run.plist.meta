@@ -31,7 +31,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -77,7 +77,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -123,7 +123,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -169,7 +169,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -215,7 +215,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -261,7 +261,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -307,7 +307,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
@@ -353,7 +353,7 @@
         "packable": true,
         "pixelsToUnit": 16,
         "pivotX": 0.5,
-        "pivotY": 0.5,
+        "pivotY": 1,
         "meshType": 0,
         "vertices": {
           "rawPosition": [],
