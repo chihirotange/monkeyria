@@ -306,7 +306,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 41.372,
       "z": 0
     },
     "_lrot": {
@@ -372,6 +372,11 @@
     "__prefab": {
       "__id__": 16
     },
+    "stackItem": {
+      "__uuid__": "c0fd6a4b-d14a-4084-9b7b-43dda94e54a4",
+      "__expectedType__": "cc.Prefab"
+    },
+    "offset": 20,
     "_id": ""
   },
   {
@@ -551,6 +556,7 @@
       "__id__": 0
     },
     "fileId": "d6EQNh2rRLcIZDUEUSzO27",
+    "instance": null,
     "targetOverrides": null
   }
 ]

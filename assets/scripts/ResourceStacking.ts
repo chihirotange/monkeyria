@@ -1,11 +1,18 @@
-import { _decorator, Component, Node, Sprite } from 'cc';
+import { _decorator, CCFloat, Component, instantiate, Node, Prefab, Sprite, Vec2 } from 'cc';
 import { Character } from './Character';
 import { ItemType } from './ItemType';
 import { ResourceDictionary } from './ResourceDictionary';
-const { ccclass, property } = _decorator;
+const { ccclass, property, type } = _decorator;
 
 @ccclass('ResourceStacking')
 export class ResourceStacking extends Component {
+
+    @type(Prefab)
+    stackItem: Prefab = null;
+
+    @type(CCFloat)
+    offset: number = 20;
+
     private _character: Character = null;
     private stack: Node[] = [];
     start() {
@@ -24,20 +31,26 @@ export class ResourceStacking extends Component {
     }
 
     private onResourceAdded(itemType: ItemType, amount: number) {
+        // TODO: assign type to stack item
         let definition = ResourceDictionary.instance.findDefintion(itemType);
         if (definition) {
-            let node = new Node();
-            let sprite = node.addComponent(Sprite);
+            let item = instantiate(this.stackItem);
+            let sprite = item.getComponent(Sprite);
             sprite.spriteFrame = definition.spriteFrames[2];
-            node.parent = this.node;
-            node.setPosition(0, this.stack.length * 32, 0); // Adjust 32 to your sprite size
-
-            this.stack.push(node);
+            item.parent = this.node;
+            item.setPosition(0, this.stack.length * this.offset, 0);
+            this.stack.push(item);
         }
     }
 
     private onResourceWithdrawn(itemType: ItemType, amount: number) {
-        
+        // TODO: remove by item type
+        for (let i = 0; i < amount; i++) {
+            const item = this.stack.pop();
+            if (item) {
+                item.destroy();
+            }
+        }
     }
 }
 
