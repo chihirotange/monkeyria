@@ -8,7 +8,6 @@ export class ResourceDefinition {
     @property
     itemType: ItemType = ItemType.None;
 
-    @type(CCString)
     @property
     displayName: string = '';
 

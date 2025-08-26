@@ -28,7 +28,7 @@ export class ResourceStacking extends Component {
         if (definition) {
             let node = new Node();
             let sprite = node.addComponent(Sprite);
-            sprite.spriteFrame = definition.spriteFrames[3];
+            sprite.spriteFrame = definition.spriteFrames[2];
             node.parent = this.node;
             node.setPosition(0, this.stack.length * 32, 0); // Adjust 32 to your sprite size
 
