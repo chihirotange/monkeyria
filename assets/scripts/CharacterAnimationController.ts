@@ -7,12 +7,12 @@ export class CharacterAnimationController extends Component {
     private _animationComp: Animation = null;
     private _movementComponent: CharacterMovement = null;
     private _idleState: AnimationState = null;
-    private _runState: AnimationState = null;
+    private _walkState: AnimationState = null;
 
     start() {
         this._animationComp = this.getComponent(Animation);
         this._idleState = this._animationComp.getState('player_idle');
-        this._runState = this._animationComp.getState('player_run');
+        this._walkState = this._animationComp.getState('player_walk');
         this._movementComponent = this.node.parent.getComponent(CharacterMovement);
     }
 
@@ -23,7 +23,7 @@ export class CharacterAnimationController extends Component {
             let currentScale = this.node.getScale();
             let scaleX = currentScale.x;
             if (magSqr > 0) {
-                this.playState(this._runState);
+                this.playState(this._walkState);
                 scaleX = Math.abs(scaleX);
                 scaleX *= direction.x < 0 ? -1 : 1;
             }
