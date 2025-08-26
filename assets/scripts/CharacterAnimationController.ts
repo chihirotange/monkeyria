@@ -9,31 +9,31 @@ export class CharacterAnimationController extends Component {
     private _movementComponent: CharacterMovement = null;
     private _idleState: AnimationState = null;
     private _walkState: AnimationState = null;
-    private _carryState: AnimationState = null;
+    private _walkCarryState: AnimationState = null;
+    private _idleCarryState: AnimationState = null;
     private _character: Character = null;
 
     start() {
         this._animationComp = this.getComponent(Animation);
         this._idleState = this._animationComp.getState('player_idle');
         this._walkState = this._animationComp.getState('player_walk');
-        this._carryState = this._animationComp.getState('player_carry');
+        this._walkCarryState = this._animationComp.getState('player_carry');
+        this._idleCarryState = this._animationComp.getState('player_idle_carry');
+
         this._movementComponent = this.node.parent.getComponent(CharacterMovement);
         this._character = this.node.parent.getComponent(Character);
     }
 
     update(deltaTime: number) {
         let direction = this._movementComponent.direction;
-        if (this._character.getInventory().getTotalResourceAmount() > 0) {
-            this.playState(this._carryState);
+        let isCarrying = this._character.getInventory().getTotalResourceAmount() > 0;
+
+        let magSqr = direction.lengthSqr();
+        if (magSqr > 0) {
+            this.playState(isCarrying ? this._walkCarryState : this._walkState);
         }
         else {
-            let magSqr = direction.lengthSqr();
-            if (magSqr > 0) {
-                this.playState(this._walkState);
-            }
-            else {
-                this.playState(this._idleState);
-            }
+            this.playState(isCarrying ? this._idleCarryState : this._idleState);
         }
 
         // flip
