@@ -8,11 +8,13 @@ export class CharacterAnimationController extends Component {
     private _movementComponent: CharacterMovement = null;
     private _idleState: AnimationState = null;
     private _walkState: AnimationState = null;
+    private _carryState: AnimationState = null;
 
     start() {
         this._animationComp = this.getComponent(Animation);
         this._idleState = this._animationComp.getState('player_idle');
         this._walkState = this._animationComp.getState('player_walk');
+        this._carryState = this._animationComp.getState('olayer_carry');
         this._movementComponent = this.node.parent.getComponent(CharacterMovement);
     }
 

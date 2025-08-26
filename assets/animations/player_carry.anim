@@ -72,35 +72,35 @@
     ],
     "_values": [
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@4ea0f",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@cdbe6",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@a7cb0",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@db5e1",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@2f799",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@7314f",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@b5a14",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@82d51",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@3edd6",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@7edd3",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@b08c9",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@24d6b",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@aa3df",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@e77ee",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "b2b577de-cc97-4b3c-9143-e8fa21187d6e@0fe0c",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@e7812",
         "__expectedType__": "cc.SpriteFrame"
       }
     ]
