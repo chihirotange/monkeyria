@@ -1,4 +1,4 @@
-import { _decorator, CCString, Component } from 'cc';
+import { _decorator, CCString, Component, SpriteFrame } from 'cc';
 import { ItemType } from './ItemType';
 const { ccclass, property, type } = _decorator;
 
@@ -11,14 +11,29 @@ export class ResourceDefinition {
     @type(CCString)
     @property
     displayName: string = '';
+
+    @type([SpriteFrame])
+    spriteFrames: SpriteFrame[] = [];
+
+    @type(SpriteFrame)
+    soilSpriteFrame: SpriteFrame = null;
+    
+    @type(SpriteFrame)
+    readyToHarvestSoilSpriteFrame: SpriteFrame = null;
 }
 
 @ccclass('ResourceDictionary')
 export class ResourceDictionary extends Component {
     private static _instance: ResourceDictionary | null = null;
-
+    
     @property({ type: [ResourceDefinition] })
     resourceDefinitions: ResourceDefinition[] = [];
+    
+    @type(SpriteFrame)
+    defaultSoilSpriteFrame: SpriteFrame = null;
+    
+    @type(SpriteFrame)
+    defaultReadyToHarvestSoilSpriteFrame: SpriteFrame = null;
 
     onLoad() {
         if (ResourceDictionary._instance && ResourceDictionary._instance !== this) {

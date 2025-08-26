@@ -10,4 +10,9 @@ export class FunctionalLibrary {
             from.depositResource(itemType, leftOver, true);
         }
     }
+
+}
+export function LOG(scope: string, ...data: any[]) {
+    let newData = [scope + ': ', ...data];
+    console.log(newData);
 }
