@@ -11,7 +11,7 @@
     "speed": 0.5,
     "wrapMode": 2,
     "enableTrsBlending": false,
-    "_duration": 0.2833333333333333,
+    "_duration": 0.25,
     "_hash": 500763545,
     "_tracks": [
       {
@@ -68,44 +68,39 @@
       0.13333333333333333,
       0.16666666666666666,
       0.2,
-      0.23333333333333334,
-      0.26666666666666666
+      0.23333333333333334
     ],
     "_values": [
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@d954a",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@c5e9a",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@488f4",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@a6ad9",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@271a8",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@a20fe",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@48d64",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@aace5",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@aa44c",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@2d8fb",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@16fb5",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@7c071",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@66797",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@61fb4",
         "__expectedType__": "cc.SpriteFrame"
       },
       {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@a0ecb",
-        "__expectedType__": "cc.SpriteFrame"
-      },
-      {
-        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@90248",
+        "__uuid__": "aa5cb0ca-c375-4370-953e-9a9a93197202@bbd0d",
         "__expectedType__": "cc.SpriteFrame"
       }
     ]
