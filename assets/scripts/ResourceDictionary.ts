@@ -46,6 +46,10 @@ export class ResourceDictionary extends Component {
     static get instance(): ResourceDictionary {
         return ResourceDictionary._instance;
     }
+
+    findDefintion(type: ItemType): ResourceDefinition | undefined {
+        return this.resourceDefinitions.find((def) => def.itemType === type);
+    }
 }
 
 
