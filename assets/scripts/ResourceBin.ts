@@ -33,7 +33,7 @@ export class ResourceBin extends PeriodInteractableObject implements IHasInvento
     })
     depositAmount: number = 0;
 
-    private _inventory: ResourceInventory = null;
+    protected _inventory: ResourceInventory = null;
 
     protected onLoad(): void {
         this._inventory = new ResourceInventory();
