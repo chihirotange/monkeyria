@@ -15,8 +15,8 @@ export class CharacterMovement extends Component {
 
     update(deltaTime: number) {
         if (!this.direction.equals(Vec2.ZERO, 0.01)) {
-            let currentPosition = this.node.getPosition();
-            this.node.setPosition(currentPosition.add(this.direction.normalize().multiplyScalar(deltaTime * this.speed).toVec3()));
+            let currentPosition = this.node.getWorldPosition();
+            this.node.setWorldPosition(currentPosition.add(this.direction.normalize().multiplyScalar(deltaTime * this.speed).toVec3()));
         }
     }
 

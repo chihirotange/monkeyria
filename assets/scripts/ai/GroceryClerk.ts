@@ -27,10 +27,10 @@ export class GroceryClerk extends StateMachine {
             return (this._currentState as FindDestinationState).found;
         }
         if (from == MoveToDestinationState && to == WaitForInteractionState) {
-            // reached destination
+            return (this._currentState as MoveToDestinationState).isTargetReached;
         }
         if (from == WaitForInteractionState && to == FindDestinationState) {
-            // done interaction
+            return (this._currentState as WaitForInteractionState).doneWaiting;
         }
         return false;
     }
