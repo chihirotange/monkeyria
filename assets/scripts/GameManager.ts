@@ -1,20 +1,24 @@
 import { _decorator, Component, Node, director, EventTarget, game, Game, PhysicsSystem2D, EPhysics2DDrawFlags } from 'cc';
 import { EDITOR } from 'cc/env';
-const { ccclass, property } = _decorator;
+const { ccclass, property, executionOrder } = _decorator;
 
 // game.on(Game.EVENT_GAME_INITED, () => {
 // 	PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Shape;
 // })
 
 @ccclass('GameManager')
+@executionOrder(-10)
 export class GameManager extends Component {
 	private static _instance: GameManager | null = null;
-
-	// Delegate for broadcasting events
 	private static _eventTarget: EventTarget = new EventTarget();
 
 	@property({ tooltip: 'Player money' })
 	defaultMoney: number = 0;
+
+	private _money: number = 0;
+
+	// Store task locations with tags/types
+	private _taskLocations: Map<Node, string[]> = new Map<Node, string[]>();
 
 	get money(): number {
 		return this._money;
@@ -23,16 +27,13 @@ export class GameManager extends Component {
 		this._money = v;
 		GameManager._eventTarget.emit('money-changed', this.money);
 	}
-	private _money: number = 0;
 
 	onLoad() {
 		if (GameManager._instance && GameManager._instance !== this) {
-			// Prevent duplicate singletons
 			this.node.destroy();
 			return;
 		}
 		GameManager._instance = this;
-		// Optionally make this node persistent
 		if (!this.node.isValid) return;
 		director.addPersistRootNode(this.node);
 	}
@@ -61,9 +62,30 @@ export class GameManager extends Component {
 		this.money = 0;
 	}
 
-	// Delegate accessor for listeners
 	static get events(): EventTarget {
 		return GameManager._eventTarget;
+	}
+
+	addTaskLocation(node: Node, types: string[]) {
+		this._taskLocations.set(node, types);
+	}
+
+	findTaskLocationsByType(type: string): Node[] {
+		return Array.from(this._taskLocations.entries())
+			.filter(([_, types]) => types.indexOf(type) > -1)
+			.map(([node, _]) => node);
+	}
+
+	findTaskLocationsWithAllTypes(types: string[]): Node[] {
+		return Array.from(this._taskLocations.entries())
+			.filter(([_, nodeTypes]) => types.every(type => nodeTypes.indexOf(type) > -1))
+			.map(([node, _]) => node);
+	}
+
+	findTaskLocationsWithAnyTypes(types: string[]): Node[] {
+		return Array.from(this._taskLocations.entries())
+			.filter(([_, nodeTypes]) => types.some(type => nodeTypes.indexOf(type) > -1))
+			.map(([node, _]) => node);
 	}
 }
 
