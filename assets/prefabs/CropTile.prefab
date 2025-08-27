@@ -111,8 +111,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 4,
-      "y": 4,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_mobility": 0,
@@ -235,7 +235,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 11.693,
+      "y": 3.968,
       "z": 0
     },
     "_lrot": {
@@ -247,8 +247,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 4,
-      "y": 4,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_mobility": 0,
@@ -481,22 +481,6 @@
     "itemType": 5,
     "maxAmount": 1,
     "generatingInterval": 5,
-    "defaultSoilSpriteFrame": {
-      "__uuid__": "9c761ef8-8452-480c-a1a1-b2e472f5232e@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
-    "readyToHarvestSoilSpriteFrame": {
-      "__uuid__": "34f0b7e6-d264-4bbe-9b6b-aee6759a2675@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
-    "defaultCropSpriteFrame": {
-      "__uuid__": "2b1557d4-5be5-4aed-8357-f60eca42722c@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
-    "readyToHarvestCropSpriteFrame": {
-      "__uuid__": "f31b9ebf-983b-4512-9c3b-0c5602ceffda@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
     "soilSprite": {
       "__id__": 5
     },
@@ -518,6 +502,7 @@
       "__id__": 0
     },
     "fileId": "e21g6bTmlFXr3kPSrmD5zl",
+    "instance": null,
     "targetOverrides": []
   }
 ]
