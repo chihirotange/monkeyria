@@ -353,7 +353,7 @@
   {
     "__type__": "cc.Node",
     "_name": "l_prototype",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 8
@@ -408,7 +408,7 @@
   {
     "__type__": "cc.Node",
     "_name": "BG",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 9
@@ -500,7 +500,7 @@
   {
     "__type__": "cc.Node",
     "_name": "Entities",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 9
@@ -1323,7 +1323,7 @@
     "instance": {
       "__id__": 53
     },
-    "nestedPrefabInstanceRoots": null
+    "targetOverrides": null
   },
   {
     "__type__": "cc.PrefabInstance",
@@ -1498,7 +1498,7 @@
   {
     "__type__": "cc.Node",
     "_name": "UICanvas",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 1
@@ -1556,7 +1556,7 @@
   {
     "__type__": "cc.Node",
     "_name": "UICamera",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 65
@@ -1647,7 +1647,7 @@
   {
     "__type__": "cc.Node",
     "_name": "HUD",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 65
@@ -1702,7 +1702,7 @@
   {
     "__type__": "cc.Node",
     "_name": "Money",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 68
@@ -1762,8 +1762,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 42.0205078125,
-      "height": 12.6
+      "width": 300.146484375,
+      "height": 126
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1795,10 +1795,10 @@
     "_string": "Money",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 14,
-    "_fontSize": 14,
+    "_actualFontSize": 100,
+    "_fontSize": 100,
     "_fontFamily": "Arial",
-    "_lineHeight": 10,
+    "_lineHeight": 100,
     "_overflow": 0,
     "_enableWrapText": true,
     "_font": null,
