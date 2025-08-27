@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="42" height="22" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#696a79" nextlayerid="3" nextobjectid="11">
+ <tileset firstgid="1" source="ts_map.tsx"/>
+ <layer id="1" name="BG" width="42" height="22">
+  <data encoding="csv">
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65
+</data>
+ </layer>
+ <objectgroup id="2" name="Entities">
+  <object id="1" name="Field" type="Field" x="88" y="184" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="96"/>
+    <property name="__anchorY" type="int" value="192"/>
+    <property name="__cx" type="int" value="6"/>
+    <property name="__cy" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="2" name="Field" type="Field" x="88" y="168" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="96"/>
+    <property name="__anchorY" type="int" value="176"/>
+    <property name="__cx" type="int" value="6"/>
+    <property name="__cy" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="3" name="Field" type="Field" x="104" y="168" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="112"/>
+    <property name="__anchorY" type="int" value="176"/>
+    <property name="__cx" type="int" value="7"/>
+    <property name="__cy" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="4" name="Field" type="Field" x="104" y="184" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="112"/>
+    <property name="__anchorY" type="int" value="192"/>
+    <property name="__cx" type="int" value="7"/>
+    <property name="__cy" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="5" name="Field" type="Field" x="120" y="184" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="128"/>
+    <property name="__anchorY" type="int" value="192"/>
+    <property name="__cx" type="int" value="8"/>
+    <property name="__cy" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="6" name="Field" type="Field" x="120" y="168" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="128"/>
+    <property name="__anchorY" type="int" value="176"/>
+    <property name="__cx" type="int" value="8"/>
+    <property name="__cy" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="7" name="Field" type="Field" x="120" y="200" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="128"/>
+    <property name="__anchorY" type="int" value="208"/>
+    <property name="__cx" type="int" value="8"/>
+    <property name="__cy" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="8" name="Field" type="Field" x="104" y="200" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="112"/>
+    <property name="__anchorY" type="int" value="208"/>
+    <property name="__cx" type="int" value="7"/>
+    <property name="__cy" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="9" name="Field" type="Field" x="88" y="200" width="16" height="16">
+   <properties>
+    <property name="Field" value="null"/>
+    <property name="__anchorX" type="int" value="96"/>
+    <property name="__anchorY" type="int" value="208"/>
+    <property name="__cx" type="int" value="6"/>
+    <property name="__cy" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="10" name="Storage" type="Storage" x="104" y="104" width="32" height="32">
+   <properties>
+    <property name="Storage" value="null"/>
+    <property name="__anchorX" type="int" value="120"/>
+    <property name="__anchorY" type="int" value="120"/>
+    <property name="__cx" type="int" value="7"/>
+    <property name="__cy" type="int" value="7"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
