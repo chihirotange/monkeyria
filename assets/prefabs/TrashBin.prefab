@@ -184,13 +184,13 @@
     "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -0.1,
+      "y": 0.4
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 80,
-      "height": 80
+      "width": 20.3,
+      "height": 20.3
     },
     "_id": ""
   },
