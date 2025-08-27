@@ -22,6 +22,7 @@ export class ResourceGenerator extends Component {
     protected onLoad(): void {
         this._inventory = this.getComponent(ResourceBin).getInventory();
         this._inventory.setResourceLimit(this.maxAmount);
+        this._inventory.onResourceWithdrawn(this.onResourceWithdrawn.bind(this));
     }
     
     start(): void {
@@ -38,6 +39,13 @@ export class ResourceGenerator extends Component {
 
     generateResource() {
         this._inventory.depositResource(this.itemType, 1);
+        this.stopGenerating();
+    }
+
+    onResourceWithdrawn(itemType: ItemType, amount: number) {
+        if (this._inventory.getResourceAmount(itemType) == 0) {
+            this.startGenerating();
+        }
     }
 }
 
