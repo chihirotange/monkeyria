@@ -3,6 +3,7 @@ import { ResourceGenerator } from './ResourceGenerator';
 import { ItemType } from './ItemType';
 import { ResourceDefinition, ResourceDictionary } from './ResourceDictionary';
 import { LOG } from './FunctionalLibrary';
+import { GameManager } from './GameManager';
 const { ccclass, property, type } = _decorator;
 
 @ccclass('CropTile')
@@ -25,6 +26,8 @@ export class CropTile extends ResourceGenerator {
         this._inventory.onResourceAdded(this.checkResourceAmount.bind(this));
         this._inventory.onResourceWithdrawn(this.checkResourceAmount.bind(this));
         this.checkResourceAmount(this.itemType, 0);
+        
+        GameManager.instance.addTaskLocation(this.node, ['crop']);
     }
 
     checkResourceAmount(itemType: ItemType, amount: number) {

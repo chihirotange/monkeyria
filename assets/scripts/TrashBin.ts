@@ -3,10 +3,15 @@ import { ResourceBin } from './ResourceBin';
 import { ResourceInventory } from './ResourceInventory';
 import { ItemType } from './ItemType';
 import { FunctionalLibrary } from './FunctionalLibrary';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('TrashBin')
 export class TrashBin extends ResourceBin {
+
+    protected onEnable(): void {
+        GameManager.instance.addTaskLocation(this.node, ['trashbin']);
+    }
     withdrawResources(characterInventory: ResourceInventory) {
         // Dont have to withdraw anything
     }
