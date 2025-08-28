@@ -11,7 +11,7 @@ export class FindDestinationState extends State {
         let tag = '';
         if (character.getInventory().getTotalResourceAmount() > 0) {
             // deliver to trash bin
-            tag = 'trashbin';
+            tag = 'shelf';
         } else {
             // go to crop
             tag = 'crop';

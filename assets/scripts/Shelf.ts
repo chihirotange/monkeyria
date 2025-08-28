@@ -2,6 +2,7 @@ import { _decorator, CCInteger, EventHandler, EventTarget, instantiate, Node, Pr
 import { ResourceBin } from './ResourceBin';
 import { ItemType } from './ItemType';
 import { ResourceDictionary } from './ResourceDictionary';
+import { GameManager } from './GameManager';
 const { ccclass, property, requireComponent, type } = _decorator;
 
 @ccclass('Shelf')
@@ -23,6 +24,7 @@ export class Shelf extends ResourceBin {
         let inventory = this.getInventory();
         inventory.onResourceAdded(this.onResourceAdded.bind(this));
         inventory.onResourceWithdrawn(this.onResourceWithdrawn.bind(this));
+        GameManager.instance.addTaskLocation(this.node, ['shelf']);
     }
 
     protected onResourceAdded(itemType: ItemType, amount: number) {
