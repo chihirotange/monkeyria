@@ -6,7 +6,7 @@ type ResourceEventCallback = (itemType: ItemType, amount: number) => void;
 export class ResourceInventory {
 
     private _resourceMap: Map<ItemType, number> = new Map<ItemType, number>();
-    private _resourceLimit: number = 99; // total limit for all resources
+    private _resourceLimit: number = 4; // total limit for all resources
 
     // Event callbacks
     private _onResourceAdded: ResourceEventCallback[] = [];
@@ -15,6 +15,10 @@ export class ResourceInventory {
     setResourceLimit(limit: number) {
         if (limit < 0) return;
         this._resourceLimit = limit;
+    }
+
+    getResourceLimit(): number {
+        return this._resourceLimit;
     }
 
     getTotalResourceAmount(): number {
@@ -107,6 +111,19 @@ export class ResourceInventory {
      */
     getResourceAmount(itemType: ItemType): number {
         return this._resourceMap.get(itemType) || 0;
+    }
+
+    /**
+     * Get all resource types currently carried with their amounts.
+     */
+    getAllResources(): { itemType: ItemType, amount: number }[] {
+        const result: { itemType: ItemType, amount: number }[] = [];
+        for (const [itemType, amount] of this._resourceMap.entries()) {
+            if (amount > 0) {
+                result.push({ itemType, amount });
+            }
+        }
+        return result;
     }
 }
 
