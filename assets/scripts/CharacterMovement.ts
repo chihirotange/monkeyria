@@ -1,8 +1,17 @@
-import { _decorator, CCFloat, Component, Node, Vec2, Vec3 } from 'cc';
+import { _decorator, CCFloat, Component, EventTarget, Node, Vec2, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterMovement')
 export class CharacterMovement extends Component {
+
+    private _eventTarget: EventTarget = new EventTarget();
+    get event(): EventTarget {
+        return this._eventTarget;
+    }
+
+    static readonly Event_StartMoving = 'start-moving';
+    static readonly Event_StopMoving = 'stop-moving';
+
     start() {
     }
 
@@ -21,7 +30,14 @@ export class CharacterMovement extends Component {
     }
 
     public SetMovementDirection(direction: Vec2) {
-        this.direction = direction.normalize();
+        if (!this.direction.equals(direction, 1e-3)) {
+            if (this.direction.equals(Vec2.ZERO, 1e-3)) {
+                this._eventTarget.emit(CharacterMovement.Event_StartMoving, this);
+            } else if (direction.equals(Vec2.ZERO, 1e-3)) {
+                this._eventTarget.emit(CharacterMovement.Event_StopMoving, this);
+            }
+            this.direction = direction.normalize();
+        }
     }
 }
 
