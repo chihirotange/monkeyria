@@ -13,7 +13,7 @@ export class ResourceInventory {
     private _onResourceWithdrawn: ResourceEventCallback[] = [];
 
     setResourceLimit(limit: number) {
-        if (limit < 0) return;
+        if (limit < -1) return;
         this._resourceLimit = limit;
     }
 
@@ -54,8 +54,10 @@ export class ResourceInventory {
         }
         const current = this._resourceMap.get(itemType) || 0;
         const total = this.getTotalResourceAmount();
-        const spaceLeft = this._resourceLimit - total;
-        if (spaceLeft <= 0) {
+        // If limit is -1, treat as unlimited space
+        const unlimited = this._resourceLimit === -1;
+        const spaceLeft = unlimited ? Number.POSITIVE_INFINITY : this._resourceLimit - total;
+        if (!unlimited && spaceLeft <= 0) {
             return 0;
         }
         if (!allowPartial && amount > spaceLeft) {

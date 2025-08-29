@@ -11,6 +11,8 @@ export class TrashBin extends ResourceBin {
 
     protected onEnable(): void {
         GameManager.instance.addTaskLocation(this.node, ['trashbin']);
+        // unlimited
+        this._inventory.setResourceLimit(-1);
     }
     withdrawResources(characterInventory: ResourceInventory) {
         // Dont have to withdraw anything
