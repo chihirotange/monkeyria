@@ -1,0 +1,293 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "8392c": {
+      "importer": "sprite-frame",
+      "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f@8392c",
+      "displayName": "",
+      "id": "8392c",
+      "name": "Things-0",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 1,
+        "trimY": 1,
+        "width": 12,
+        "height": 26,
+        "rawWidth": 12,
+        "rawHeight": 26,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a",
+        "atlasUuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fb87c": {
+      "importer": "sprite-frame",
+      "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f@fb87c",
+      "displayName": "",
+      "id": "fb87c",
+      "name": "Things-1",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 15,
+        "trimY": 1,
+        "width": 22,
+        "height": 27,
+        "rawWidth": 22,
+        "rawHeight": 27,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a",
+        "atlasUuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ab921": {
+      "importer": "sprite-frame",
+      "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f@ab921",
+      "displayName": "",
+      "id": "ab921",
+      "name": "Things-2",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 39,
+        "trimY": 1,
+        "width": 32,
+        "height": 55,
+        "rawWidth": 32,
+        "rawHeight": 55,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a",
+        "atlasUuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cb9b0": {
+      "importer": "sprite-frame",
+      "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f@cb9b0",
+      "displayName": "",
+      "id": "cb9b0",
+      "name": "Things-3",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 73,
+        "trimY": 1,
+        "width": 16,
+        "height": 16,
+        "rawWidth": 16,
+        "rawHeight": 16,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a",
+        "atlasUuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "710e3": {
+      "importer": "sprite-frame",
+      "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f@710e3",
+      "displayName": "",
+      "id": "710e3",
+      "name": "Things-4",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 1,
+        "trimY": 58,
+        "width": 46,
+        "height": 48,
+        "rawWidth": 46,
+        "rawHeight": 48,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a",
+        "atlasUuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e7f93": {
+      "importer": "sprite-frame",
+      "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f@e7f93",
+      "displayName": "",
+      "id": "e7f93",
+      "name": "Things-5",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 49,
+        "trimY": 58,
+        "width": 16,
+        "height": 15,
+        "rawWidth": 16,
+        "rawHeight": 15,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a",
+        "atlasUuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "things.png",
+    "format": 3,
+    "uuid": "3f607252-2b69-427c-a855-bf8522b5fb3f",
+    "textureUuid": "3f48c528-917d-4a0c-b36d-1a7d1a634068@6c48a"
+  }
+}
