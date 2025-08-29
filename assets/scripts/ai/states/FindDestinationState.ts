@@ -4,6 +4,8 @@ import { GameManager } from '../../GameManager';
 import { Character } from '../../Character';
 import { Shelf } from '../../Shelf';
 import { LOG } from '../../FunctionalLibrary';
+import { ItemType } from '../../ItemType';
+import { CropTile } from '../../CropTile';
 
 export class FindDestinationState extends State {
     found: boolean = false;
@@ -13,7 +15,14 @@ export class FindDestinationState extends State {
         let characterInventory = character.getInventory();
 
         // find all building with 'shelf' tag
-        let shelves = gameManager.findTaskLocationsByType('shelf');
+        let shelfNodes = gameManager.findTaskLocationsByType('shelf');
+        let shelves: Shelf[] = shelfNodes
+            .map((node) => node.getComponent(Shelf))
+            .filter((shelf): shelf is Shelf => !!shelf);
+        let crops = gameManager.findTaskLocationsByType('crop')
+            .map((node) => node.getComponent(CropTile))
+            .filter((crop): crop is CropTile => !!crop);
+
         // check if carry resource
         let carryingAmount = characterInventory.getTotalResourceAmount();
         // check carry limit, check the the 'shelf' with carrying resource
@@ -30,24 +39,23 @@ export class FindDestinationState extends State {
                     maxResource = resource;
                 }
             }
-            let targetShelf = shelves.find((node) => {
-                let shelfComp = node.getComponent(Shelf);
-                return shelfComp.itemTypeToDeposit === maxResource.itemType;
+            let targetShelf = shelves.find((shelf) => {
+                return shelf.itemTypeToDeposit === maxResource.itemType;
             });
             if (targetShelf) {
                 // check can carry more same type of resource
                 let canCarryMore = carryingAmount < character.getInventory().getResourceLimit(); // and shelf still has space
                 if (canCarryMore) {
                     // --> find other available crops
-                    let crops = gameManager.findTaskLocationsByType('crop');
+                    
                     if (crops.length > 0) {
-                        this.setTarget(crops[0]);
+                        this.setTarget(crops[0].node);
                     } else {
-                        this.setTarget(targetShelf);
+                        this.setTarget(targetShelf.node);
                     }
                 } else {
                     // --> go to the shelf with that type
-                    this.setTarget(targetShelf);
+                    this.setTarget(targetShelf.node);
                 }
             } else {
                 LOG('Expect to not go here');
@@ -55,9 +63,20 @@ export class FindDestinationState extends State {
         }
         else {
             // check if any build lack of resource
+            shelves.sort((shelfA, shelfB): number => {
+                return shelfB.getAvailableSpace() - shelfA.getAvailableSpace();
+            });
+            let shelf = shelves[0];
             // find crop with that resource type
-
-            // or go to random crop
+            let crop = crops.find((c) => {
+                return c.itemType === shelf.itemTypeToDeposit;
+            });
+            if (crop) {
+                this.setTarget(crop.node);
+            } else {
+                // or go to random crop
+                this.setTarget(crop[0]);
+            }
         }
 
         // let tag = '';

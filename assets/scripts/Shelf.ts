@@ -22,6 +22,7 @@ export class Shelf extends ResourceBin {
 
     start() {
         let inventory = this.getInventory();
+        inventory.setResourceLimit(this.rowCount * this.colCount);
         inventory.onResourceAdded(this.onResourceAdded.bind(this));
         inventory.onResourceWithdrawn(this.onResourceWithdrawn.bind(this));
         GameManager.instance.addTaskLocation(this.node, ['shelf']);
@@ -78,6 +79,10 @@ export class Shelf extends ResourceBin {
 
     protected onResourceWithdrawn(itemType: ItemType, amount: number) {
 
+    }
+
+    getAvailableSpace(): number {
+        return this.getInventory().getResourceLimit() - this.itemContainer.children.length;
     }
 }
 

@@ -26,8 +26,7 @@ export class CropTile extends ResourceGenerator {
         this._inventory.onResourceAdded(this.checkResourceAmount.bind(this));
         this._inventory.onResourceWithdrawn(this.checkResourceAmount.bind(this));
         this.checkResourceAmount(this.itemType, 0);
-        
-        GameManager.instance.addTaskLocation(this.node, ['crop']);
+        GameManager.instance.addTaskLocation(this.node, ['crop', ItemType[this.itemType]]);
     }
 
     checkResourceAmount(itemType: ItemType, amount: number) {
