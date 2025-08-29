@@ -11,5 +11,66 @@
 	"layers": [
 		"Terrain.png"
 	],
-	"entities" : {}
+	"entities": {
+		"Counter": [
+			{
+				"id": "Counter",
+				"iid": "e22d9300-5e50-11f0-8dd6-13f2b531e6d1",
+				"layer": "Entities",
+				"x": 232,
+				"y": 88,
+				"width": 1,
+				"height": 1,
+				"color": 39872,
+				"customFields": {
+					"Counter": ""
+				}
+			}
+		],
+		"TrashBin": [
+			{
+				"id": "TrashBin",
+				"iid": "f699ff90-5e50-11f0-8dd6-2bf5fcacbddc",
+				"layer": "Entities",
+				"x": 152,
+				"y": 40,
+				"width": 1,
+				"height": 1,
+				"color": 14120515,
+				"customFields": {
+					"TrashBin": ""
+				}
+			}
+		],
+		"Field": [
+			{
+				"id": "Field",
+				"iid": "17fd5c90-5e50-11f0-8dd6-5358029fe996",
+				"layer": "Entities",
+				"x": 152,
+				"y": 152,
+				"width": 1,
+				"height": 1,
+				"color": 12470831,
+				"customFields": {
+					"Field": ""
+				}
+			}
+		],
+		"Storage": [
+			{
+				"id": "Storage",
+				"iid": "52929d70-5e50-11f0-8dd6-5989d21c37f4",
+				"layer": "Entities",
+				"x": 72,
+				"y": 152,
+				"width": 1,
+				"height": 1,
+				"color": 39872,
+				"customFields": {
+					"Storage": ""
+				}
+			}
+		]
+	}
 }
