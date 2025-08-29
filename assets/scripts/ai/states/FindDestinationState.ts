@@ -47,7 +47,6 @@ export class FindDestinationState extends State {
                 let canCarryMore = carryingAmount < character.getInventory().getResourceLimit(); // and shelf still has space
                 if (canCarryMore) {
                     // --> find other available crops
-                    
                     if (crops.length > 0) {
                         this.setTarget(crops[0].node);
                     } else {
@@ -79,18 +78,10 @@ export class FindDestinationState extends State {
             }
         }
 
-        // let tag = '';
-        // if (character.getInventory().getTotalResourceAmount() > 0) {
-        //     // deliver to trash bin
-        //     tag = 'shelf';
-        // } else {
-        //     // go to crop
-        //     tag = 'crop';
-        // }
-        // let targets = GameManager.instance.findTaskLocationsByType(tag);
-        // if (targets.length > 0) {
-        //     this.setTarget(targets[0]);
-        // }
+        let shelf = this.system.getVariable('target').getComponent(Shelf);
+        if (shelf && shelf.getAvailableSpace() <= 0) {
+            this.setTarget(gameManager.findTaskLocationsByType('trashbin')[0]);
+        }
     }
 
     setTarget(node: Node) {
