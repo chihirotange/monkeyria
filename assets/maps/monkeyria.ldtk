@@ -38,7 +38,7 @@
 	"backupRelPath": null,
 	"levelNamePattern": "Level_%idx",
 	"tutorialDesc": null,
-	"customCommands": [],
+	"customCommands": [ { "command": "after-save.bat", "when": "AfterSave" }, { "command": "", "when": "Manual" } ],
 	"flags": [],
 	"defs": { "layers": [
 		{
@@ -968,7 +968,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Field",
-							"__grid": [5,11],
+							"__grid": [6,10],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": null,
@@ -977,13 +977,13 @@
 							"width": 1,
 							"height": 1,
 							"defUid": 10,
-							"px": [88,184],
+							"px": [104,168],
 							"fieldInstances": [
 								{ "__identifier": "Field", "__type": "String", "__value": "", "__tile": null, "defUid": 14, "realEditorValues": [] },
 								{ "__identifier": "EntityType", "__type": "LocalEnum.EntityType", "__value": "Field", "__tile": null, "defUid": 55, "realEditorValues": [] }
 							],
-							"__worldX": 88,
-							"__worldY": 184
+							"__worldX": 104,
+							"__worldY": 168
 						},
 						{
 							"__identifier": "TrashBin",
@@ -1035,6 +1035,25 @@
 							"fieldInstances": [{ "__identifier": "EntityType", "__type": "LocalEnum.EntityType", "__value": "Storage", "__tile": null, "defUid": 52, "realEditorValues": [] }],
 							"__worldX": 168,
 							"__worldY": 136
+						},
+						{
+							"__identifier": "Field",
+							"__grid": [7,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "49546c90-8560-11f0-bfc6-859567fa4fd2",
+							"width": 1,
+							"height": 1,
+							"defUid": 10,
+							"px": [120,168],
+							"fieldInstances": [
+								{ "__identifier": "Field", "__type": "String", "__value": "", "__tile": null, "defUid": 14, "realEditorValues": [] },
+								{ "__identifier": "EntityType", "__type": "LocalEnum.EntityType", "__value": "Field", "__tile": null, "defUid": 55, "realEditorValues": [] }
+							],
+							"__worldX": 120,
+							"__worldY": 168
 						}
 					]
 				},

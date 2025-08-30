@@ -19,8 +19,22 @@
 				"id": "Field",
 				"iid": "661398c0-5e50-11f0-8dd6-dfda3c5ed701",
 				"layer": "Entities",
-				"x": 88,
-				"y": 184,
+				"x": 104,
+				"y": 168,
+				"width": 1,
+				"height": 1,
+				"color": 12470831,
+				"customFields": {
+					"Field": "",
+					"EntityType": "Field"
+				}
+			},
+			{
+				"id": "Field",
+				"iid": "49546c90-8560-11f0-bfc6-859567fa4fd2",
+				"layer": "Entities",
+				"x": 120,
+				"y": 168,
 				"width": 1,
 				"height": 1,
 				"color": 12470831,
