@@ -25,7 +25,8 @@
 				"height": 1,
 				"color": 12470831,
 				"customFields": {
-					"Field": ""
+					"Field": "",
+					"EntityType": "Field"
 				}
 			}
 		],
@@ -40,7 +41,8 @@
 				"height": 1,
 				"color": 14120515,
 				"customFields": {
-					"TrashBin": ""
+					"TrashBin": "",
+					"EntityType": "TrashBin"
 				}
 			}
 		],
@@ -55,7 +57,7 @@
 				"height": 1,
 				"color": 39872,
 				"customFields": {
-					"Counter": ""
+					"EntityType": "Counter"
 				}
 			}
 		],
@@ -70,7 +72,7 @@
 				"height": 1,
 				"color": 39872,
 				"customFields": {
-					"Storage": ""
+					"EntityType": "Storage"
 				}
 			}
 		]
