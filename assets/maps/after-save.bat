@@ -5,3 +5,5 @@ REM Copy Terrain.png
 copy /Y ".\monkeyria\simplified\Level_0\Terrain.png" "..\resources\Terrain.png"
 REM Copy data.json
 copy /Y ".\monkeyria\simplified\Level_0\data.json" "..\resources\data.json"
+REM Copy monkeyria.ldtk
+copy /Y ".\monkeyria.ldtk" "..\resources\monkeyria.ldtk"
