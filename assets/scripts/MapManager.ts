@@ -1,4 +1,4 @@
-import { _decorator, assetManager, Component, ImageAsset, Node, resources, Sprite, SpriteFrame } from 'cc';
+import { _decorator, assetManager, Component, ImageAsset, JsonAsset, Node, resources, Sprite, SpriteFrame } from 'cc';
 const { ccclass, property, type } = _decorator;
 
 @ccclass('MapManager')
@@ -26,8 +26,30 @@ export class MapManager extends Component {
             }
             this.BG_top.spriteFrame = data;
         });
+        resources.load('data', JsonAsset, (err, jsonAsset) => {
+            if (err) {
+                return;
+            }
+            this.onMapDataLoaded(jsonAsset.json);
+        });
     }
-
+    onMapDataLoaded(json: Record<string, any>) {
+        const identifier = json.identifier;
+        const width = json.width;
+        const height = json.height;
+        const bgColor = json.bgColor;
+        
+        const entities = json.entities;
+        for (const entityType in entities) {
+            if (entities.hasOwnProperty(entityType)) {
+                const entityArray = entities[entityType];
+                entityArray.forEach((entity: any) => {
+                    console.log(`Entity type: ${entityType}, id: ${entity.id}, x: ${entity.x}, y: ${entity.y}`);
+                    // You can access other fields as needed
+                });
+            }
+        }
+    }
 }
 
 
