@@ -367,7 +367,7 @@
     "bullet": false,
     "awakeOnLoad": true,
     "_group": 1,
-    "_type": 1,
+    "_type": 2,
     "_allowSleep": false,
     "_gravityScale": 0,
     "_linearDamping": 0,
@@ -405,13 +405,13 @@
     "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0.2,
-      "y": 5.9
+      "x": 0.3,
+      "y": 3.9
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 13.7,
-      "height": 16.9
+      "width": 13.8,
+      "height": 13
     },
     "_id": ""
   },

@@ -441,13 +441,13 @@
     "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 6.3
+      "x": 0.4,
+      "y": 3.7
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 12.9,
-      "height": 17.7
+      "width": 12.6,
+      "height": 12.6
     },
     "_id": ""
   },
@@ -482,6 +482,7 @@
       "__id__": 0
     },
     "fileId": "d6EQNh2rRLcIZDUEUSzO27",
+    "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {
