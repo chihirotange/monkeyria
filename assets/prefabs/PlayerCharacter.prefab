@@ -380,7 +380,7 @@
     "__prefab": {
       "__id__": 24
     },
-    "speed": 100,
+    "speed": 12,
     "_id": ""
   },
   {
@@ -403,7 +403,7 @@
     "bullet": false,
     "awakeOnLoad": true,
     "_group": 1,
-    "_type": 1,
+    "_type": 2,
     "_allowSleep": false,
     "_gravityScale": 0,
     "_linearDamping": 0,
@@ -414,7 +414,7 @@
       "y": 0
     },
     "_angularVelocity": 0,
-    "_fixedRotation": false,
+    "_fixedRotation": true,
     "_id": ""
   },
   {
@@ -482,7 +482,6 @@
       "__id__": 0
     },
     "fileId": "d6EQNh2rRLcIZDUEUSzO27",
-    "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {

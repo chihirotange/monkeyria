@@ -1,8 +1,10 @@
-import { _decorator, CCFloat, Component, EventTarget, Node, Vec2, Vec3 } from 'cc';
+import { _decorator, CCFloat, Component, EventTarget, Node, RigidBody2D, Vec2, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterMovement')
 export class CharacterMovement extends Component {
+
+    private _rb: RigidBody2D = null;
 
     private _eventTarget: EventTarget = new EventTarget();
     get event(): EventTarget {
@@ -13,6 +15,7 @@ export class CharacterMovement extends Component {
     static readonly Event_StopMoving = 'stop-moving';
 
     start() {
+        this._rb = this.getComponent(RigidBody2D);
     }
 
     @property(CCFloat)
@@ -23,10 +26,14 @@ export class CharacterMovement extends Component {
     private set direction(v: Vec2) { this._direction = v; }
 
     update(deltaTime: number) {
-        if (!this.direction.equals(Vec2.ZERO, 0.01)) {
-            let currentPosition = this.node.getWorldPosition();
-            this.node.setWorldPosition(currentPosition.add(this.direction.normalize().multiplyScalar(deltaTime * this.speed).toVec3()));
-        }
+        // if (!this.direction.equals(Vec2.ZERO, 0.01)) {
+        //     let currentPosition = this.node.getWorldPosition();
+        //     this.node.setWorldPosition(currentPosition.add(this.direction.normalize().multiplyScalar(deltaTime * this.speed).toVec3()));
+        // }
+    }
+
+    protected lateUpdate(dt: number): void {
+        
     }
 
     public SetMovementDirection(direction: Vec2) {
@@ -38,6 +45,9 @@ export class CharacterMovement extends Component {
             }
             this.direction = direction.normalize();
         }
+
+        let velocity = this.direction.multiplyScalar(this.speed);
+        this._rb.linearVelocity = velocity;
     }
 }
 
