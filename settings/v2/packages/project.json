@@ -12,6 +12,21 @@
   "physics": {
     "gravity": {
       "y": 0
+    },
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "Character"
+      },
+      {
+        "index": 2,
+        "name": "InteractableObject"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 7,
+      "1": 5,
+      "2": 3
     }
   }
 }
