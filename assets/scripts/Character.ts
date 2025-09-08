@@ -3,11 +3,16 @@ import { InteractableObject } from './interactable/InteractableObject';
 import { IHasInventory, ResourceInventory } from './ResourceInventory';
 const { ccclass, property } = _decorator;
 
+export type CharacterInteractingCallback = (character: Character, interactable: InteractableObject) => void;
+
 @ccclass('Character')
 export class Character extends Component implements IHasInventory {
 
     _collider: Collider2D = null;
     private _inventory: ResourceInventory = null;
+
+    onBeginInteracting: CharacterInteractingCallback[] = [];
+    onEndInteracting: CharacterInteractingCallback[] = [];
 
     protected onLoad(): void {
         this._inventory = new ResourceInventory();
@@ -32,11 +37,17 @@ export class Character extends Component implements IHasInventory {
     beginInteracting(interactable: InteractableObject) {
         if (!interactable) { return; }
         interactable.beginInteraction(this);
+        this.onBeginInteracting.forEach(callback => {
+            callback(this, interactable);
+        });
     }
 
     endInteracting(interactable: InteractableObject) {
         if (!interactable) { return; }
         interactable.endInteraction(this);
+        this.onEndInteracting.forEach(callback => {
+            callback(this, interactable);
+        })
     }
 
     getInventory(): ResourceInventory {

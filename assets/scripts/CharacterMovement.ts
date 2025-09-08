@@ -46,7 +46,7 @@ export class CharacterMovement extends Component {
             this.direction = direction.normalize();
         }
 
-        let velocity = this.direction.multiplyScalar(this.speed);
+        let velocity = this.direction.clone().multiplyScalar(this.speed);
         this._rb.linearVelocity = velocity;
     }
 }
