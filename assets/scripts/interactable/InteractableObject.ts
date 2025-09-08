@@ -6,9 +6,12 @@ const { ccclass, property } = _decorator;
 @ccclass('InteractableObject')
 export abstract class InteractableObject extends Component {
 
-    _colliderComp: Collider2D = null;
+    protected _colliderComp: Collider2D = null;
 
-    _interactingCharacters: SetWithEvents<Character> = new SetWithEvents<Character>();
+    protected _interactingCharacters: SetWithEvents<Character> = new SetWithEvents<Character>();
+    get interactingCharacter(): SetWithEvents<Character> {
+        return this._interactingCharacters;
+    }
 
     start() {
         this._colliderComp = this.getComponent(Collider2D);

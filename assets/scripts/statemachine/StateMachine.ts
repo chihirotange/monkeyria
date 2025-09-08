@@ -16,12 +16,14 @@ export abstract class State {
 
 export type StateConstructor = new (...args: any[]) => State;
 
+export type CanChangeStateCallback = (from: StateConstructor, to: StateConstructor) => boolean;
+
 @ccclass('StateMachine')
 export class StateMachine extends Component {
     protected _stateConstructors: Set<StateConstructor> = new Set();
     protected _currentState: State = null;
     protected _initialStateConstructor: StateConstructor = null;
-    protected _transitions: Map<StateConstructor, Set<StateConstructor>> = new Map();
+    protected _transitions: Map<StateConstructor, Map<StateConstructor, CanChangeStateCallback>> = new Map();
     protected _pendingTransition: {
         toCtor: StateConstructor,
         prevState: State
@@ -72,8 +74,8 @@ export class StateMachine extends Component {
                 const fromCtor = this._currentState.constructor as StateConstructor;
                 const possibleTransitions = this._transitions.get(fromCtor);
                 if (possibleTransitions) {
-                    for (const toCtor of possibleTransitions) {
-                        if (this.canChangeState(fromCtor, toCtor)) {
+                    for (const [toCtor, condition] of possibleTransitions) {
+                        if (condition && condition(fromCtor, toCtor)) {
                             const prevState = this._currentState;
                             prevState.onStateExit();
                             this._pendingTransition = { toCtor, prevState };
@@ -86,7 +88,7 @@ export class StateMachine extends Component {
 
     }
 
-    addState<T extends State>(stateConstructor: StateConstructor, isInitialState: boolean = false) {
+    addState(stateConstructor: StateConstructor, isInitialState: boolean = false) {
         this._stateConstructors.add(stateConstructor);
         if (isInitialState) {
             this._initialStateConstructor = stateConstructor;
@@ -94,11 +96,11 @@ export class StateMachine extends Component {
         return this;
     }
 
-    addTransition<T extends State>(from: StateConstructor, to: StateConstructor) {
+    addTransition(from: StateConstructor, to: StateConstructor, condition: CanChangeStateCallback) {
         if (!this._transitions.has(from)) {
-            this._transitions.set(from, new Set());
+            this._transitions.set(from, new Map());
         }
-        this._transitions.get(from).add(to);
+        this._transitions.get(from).set(to, condition);
         return this;
     }
 
@@ -108,10 +110,6 @@ export class StateMachine extends Component {
         }
         this._currentState = new this._initialStateConstructor(this); // Pass system
         this._currentState.onStateEnter();
-    }
-
-    canChangeState<T extends State>(from: StateConstructor, to: StateConstructor): boolean {
-        return false;
     }
 }
 

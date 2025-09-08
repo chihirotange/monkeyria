@@ -1,13 +1,13 @@
-import { __private, _decorator, Component, Node } from 'cc';
-import { State, StateConstructor, StateMachine } from '../statemachine/StateMachine';
-import { IdleState } from './states/IdleState';
-import { FindDestinationState } from './states/FindDestinationState';
-import { MoveToDestinationState } from './states/MoveToDestinationState';
-import { WaitForInteractionState } from './states/WaitForInteractionState';
+import { _decorator, Component, Node } from 'cc';
+import { State, StateConstructor, StateMachine } from './statemachine/StateMachine';
+import { FindDestinationState } from './ai/states/FindDestinationState';
+import { IdleState } from './ai/states/IdleState';
+import { MoveToDestinationState } from './ai/states/MoveToDestinationState';
+import { WaitForInteractionState } from './ai/states/WaitForInteractionState';
 const { ccclass, property } = _decorator;
 
-@ccclass('GroceryClerk')
-export class GroceryClerk extends StateMachine {
+@ccclass('Customer')
+export class Customer extends StateMachine {
     protected onEnable(): void {
         this.addState(IdleState, true)
             .addState(FindDestinationState)
@@ -43,9 +43,6 @@ export class GroceryClerk extends StateMachine {
             );
     }
 
-    protected start(): void {
-        this.startSystem();
-    }
 }
 
 
