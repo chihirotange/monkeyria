@@ -316,7 +316,7 @@
     "__prefab": {
       "__id__": 15
     },
-    "period": 1,
+    "period": 0.2,
     "itemTypeToWithdraw": 0,
     "withdrawAmount": 0,
     "itemTypeToDeposit": 5,
