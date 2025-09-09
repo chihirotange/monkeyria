@@ -1,12 +1,15 @@
-import { _decorator, Collider2D, Component, Contact2DType, IPhysics2DContact, Node } from 'cc';
+import { _decorator, CCString, Collider2D, Component, Contact2DType, IPhysics2DContact, Node } from 'cc';
 import { InteractableObject } from './interactable/InteractableObject';
 import { IHasInventory, ResourceInventory } from './ResourceInventory';
-const { ccclass, property } = _decorator;
+const { ccclass, property, type } = _decorator;
 
 export type CharacterInteractingCallback = (character: Character, interactable: InteractableObject) => void;
 
 @ccclass('Character')
 export class Character extends Component implements IHasInventory {
+
+    @type([CCString])
+    tags: string[] = [];
 
     _collider: Collider2D = null;
     private _inventory: ResourceInventory = null;

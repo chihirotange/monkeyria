@@ -1,3 +1,4 @@
+import { Character } from './Character';
 import { ItemType } from './ItemType';
 import { ResourceInventory } from './ResourceInventory';
 
@@ -9,6 +10,20 @@ export class FunctionalLibrary {
         if (leftOver > 0) {
             from.depositResource(itemType, leftOver, true);
         }
+    }
+
+    static checkCharacterRequiredTags(character: Character, requiredTags: string[]): boolean {
+        if (requiredTags.length == 0) {
+            return true;
+        }
+        let allMatched = true;
+        for (const tag of requiredTags) {
+            if (!character.tags.includes(tag)) {
+                allMatched = false;
+                break;
+            }
+        }
+        return allMatched;
     }
 
 }

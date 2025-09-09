@@ -317,10 +317,16 @@
       "__id__": 15
     },
     "period": 0.2,
-    "itemTypeToWithdraw": 0,
-    "withdrawAmount": 0,
+    "itemTypeToWithdraw": 5,
+    "withdrawAmount": 1,
+    "requiredTagsToWithdraw": [
+      "customer"
+    ],
     "itemTypeToDeposit": 5,
     "depositAmount": 1,
+    "requiredTagsToDeposit": [
+      "worker"
+    ],
     "itemContainer": {
       "__id__": 2
     },

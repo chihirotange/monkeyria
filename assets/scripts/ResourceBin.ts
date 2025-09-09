@@ -1,4 +1,4 @@
-import { _decorator, CCInteger } from 'cc';
+import { _decorator, CCInteger, CCString } from 'cc';
 import { PeriodInteractableObject } from './interactable/PeriodInteractableObject';
 import { Character } from './Character';
 import { IHasInventory, ResourceInventory } from './ResourceInventory';
@@ -22,6 +22,12 @@ export class ResourceBin extends PeriodInteractableObject implements IHasInvento
     withdrawAmount: number = 0;
 
     @property({
+        type: [CCString],
+        group: 'ResourceBin'
+    })
+    requiredTagsToWithdraw: string[] = [];
+
+    @property({
         type: ItemType,
         group: 'ResourceBin'
     })
@@ -32,6 +38,12 @@ export class ResourceBin extends PeriodInteractableObject implements IHasInvento
         group: 'ResourceBin'
     })
     depositAmount: number = 0;
+
+    @property({
+        type: [CCString],
+        group: 'ResourceBin'
+    })
+    requiredTagsToDeposit: string[] = [];
 
     protected _inventory: ResourceInventory = null;
 
@@ -44,41 +56,45 @@ export class ResourceBin extends PeriodInteractableObject implements IHasInvento
     }
 
     processInterval(character: Character) {
-         if (!character) {
+        if (!character) {
             return;
         }
 
         this.withdrawResources(character);
         this.depositResources(character);
     }
-    
+
     withdrawResources(character: Character) {
-        if (this.itemTypeToWithdraw == ItemType.None)
-        {
+        if (this.itemTypeToWithdraw == ItemType.None) {
+            return;
+        }
+
+        if (!FunctionalLibrary.checkCharacterRequiredTags(character, this.requiredTagsToWithdraw)) {
             return;
         }
 
         let characterInventory = character.getInventory();
-        if (!characterInventory)
-        {
+        if (!characterInventory) {
             return;
         }
 
         FunctionalLibrary.transferResource(this._inventory, characterInventory, this.itemTypeToWithdraw, this.withdrawAmount);
     }
-    
+
     depositResources(character: Character) {
-        if (this.itemTypeToDeposit == ItemType.None)
-        {
+        if (this.itemTypeToDeposit == ItemType.None) {
+            return;
+        }
+
+        if (!FunctionalLibrary.checkCharacterRequiredTags(character, this.requiredTagsToDeposit)) {
             return;
         }
 
         let characterInventory = character.getInventory();
-        if (!characterInventory)
-        {
+        if (!characterInventory) {
             return;
         }
-        
+
         FunctionalLibrary.transferResource(characterInventory, this._inventory, this.itemTypeToDeposit, this.depositAmount);
     }
 }
