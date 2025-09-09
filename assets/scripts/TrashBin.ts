@@ -4,6 +4,7 @@ import { ResourceInventory } from './ResourceInventory';
 import { ItemType } from './ItemType';
 import { FunctionalLibrary } from './FunctionalLibrary';
 import { GameManager } from './GameManager';
+import { Character } from './Character';
 const { ccclass, property } = _decorator;
 
 @ccclass('TrashBin')
@@ -14,18 +15,21 @@ export class TrashBin extends ResourceBin {
         // unlimited
         this._inventory.setResourceLimit(-1);
     }
-    withdrawResources(characterInventory: ResourceInventory) {
+    withdrawResources(character: Character) {
         // Dont have to withdraw anything
     }
 
-    depositResources(characterInventory: ResourceInventory) {
+    depositResources(character: Character) {
+        let characterInventory = character.getInventory();
+        if (!characterInventory) {
+            return;
+        }
         for (const key in ItemType) {
             // Skip numeric keys (reverse mapping in TypeScript enums)
             if (isNaN(Number(key))) {
                 const item = ItemType[key as keyof typeof ItemType] as ItemType;
                 let amount = characterInventory.getResourceAmount(item);
-                if (amount > 0)
-                {
+                if (amount > 0) {
                     FunctionalLibrary.transferResource(
                         characterInventory,
                         this._inventory,

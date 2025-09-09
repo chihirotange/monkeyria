@@ -48,18 +48,18 @@ export class ResourceBin extends PeriodInteractableObject implements IHasInvento
             return;
         }
 
-        let characterInventory = character.getInventory();
-        if (!characterInventory)
+        this.withdrawResources(character);
+        this.depositResources(character);
+    }
+    
+    withdrawResources(character: Character) {
+        if (this.itemTypeToWithdraw == ItemType.None)
         {
             return;
         }
 
-        this.withdrawResources(characterInventory);
-        this.depositResources(characterInventory);
-    }
-    
-    withdrawResources(characterInventory: ResourceInventory) {
-        if (this.itemTypeToWithdraw == ItemType.None)
+        let characterInventory = character.getInventory();
+        if (!characterInventory)
         {
             return;
         }
@@ -67,12 +67,18 @@ export class ResourceBin extends PeriodInteractableObject implements IHasInvento
         FunctionalLibrary.transferResource(this._inventory, characterInventory, this.itemTypeToWithdraw, this.withdrawAmount);
     }
     
-    depositResources(characterInventory: ResourceInventory) {
+    depositResources(character: Character) {
         if (this.itemTypeToDeposit == ItemType.None)
         {
             return;
         }
 
+        let characterInventory = character.getInventory();
+        if (!characterInventory)
+        {
+            return;
+        }
+        
         FunctionalLibrary.transferResource(characterInventory, this._inventory, this.itemTypeToDeposit, this.depositAmount);
     }
 }
