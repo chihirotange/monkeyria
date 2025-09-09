@@ -1,48 +1,69 @@
-import { _decorator, Component, Node } from 'cc';
-import { State, StateConstructor, StateMachine } from './statemachine/StateMachine';
-import { FindDestinationState } from './ai/states/FindDestinationState';
+import { _decorator } from 'cc';
+import { StateMachine } from './statemachine/StateMachine';
 import { IdleState } from './ai/states/IdleState';
 import { MoveToDestinationState } from './ai/states/MoveToDestinationState';
 import { WaitForInteractionState } from './ai/states/WaitForInteractionState';
-const { ccclass, property } = _decorator;
+import { ItemType } from './ItemType';
+import { ResourceDictionary } from './ResourceDictionary';
+import { CustomerFindDestinationState } from './ai/states/CustomerFindDestinationState';
+import { Character } from './Character';
+const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('Customer')
-export class Customer extends StateMachine {
+@requireComponent(StateMachine)
+export class Customer extends Character {
+
+    itemList: Map<ItemType, number> = new Map();
+    
+    private _stateMachine: StateMachine = null;
+
     protected onEnable(): void {
-        this.addState(IdleState, true)
-            .addState(FindDestinationState)
+        this._stateMachine = this.getComponent(StateMachine);
+        this._stateMachine.addState(IdleState, true)
+            .addState(CustomerFindDestinationState)
             .addState(MoveToDestinationState)
             .addState(WaitForInteractionState)
             .addTransition(
                 IdleState,
-                FindDestinationState,
+                CustomerFindDestinationState,
                 (from, to) => {
-                    return (this._currentState as IdleState).idleDuration <= 0;
+                    return (this._stateMachine.currentState as IdleState).idleDuration <= 0;
                 }
             )
             .addTransition(
-                FindDestinationState,
+                CustomerFindDestinationState,
                 MoveToDestinationState,
                 (from, to) => {
-                    return (this._currentState as FindDestinationState).found;
+                    return (this._stateMachine.currentState as CustomerFindDestinationState).found;
                 }
             )
             .addTransition(
                 MoveToDestinationState,
                 WaitForInteractionState,
                 (from, to) => {
-                    return (this._currentState as MoveToDestinationState).isTargetReached;
+                    return (this._stateMachine.currentState as MoveToDestinationState).isTargetReached;
                 }
             )
             .addTransition(
                 WaitForInteractionState,
-                FindDestinationState,
+                CustomerFindDestinationState,
                 (from, to) => {
-                    return (this._currentState as WaitForInteractionState).doneWaiting;
+                    return (this._stateMachine.currentState as WaitForInteractionState).doneWaiting;
                 }
             );
     }
 
+    start(): void {
+        super.start();
+        this.decideItemList();
+        this._stateMachine.startSystem();
+    }
+
+    decideItemList() {
+        let resourceDefs = ResourceDictionary.instance.resourceDefinitions;
+        const randomIndex = Math.floor(Math.random() * resourceDefs.length);
+        let def = resourceDefs[randomIndex];
+        // TODO: random amount of item
+        this.itemList.set(def.itemType, 3);
+    }
 }
-
-

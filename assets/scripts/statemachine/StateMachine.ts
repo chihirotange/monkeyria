@@ -29,6 +29,8 @@ export class StateMachine extends Component {
         prevState: State
     } = null;
 
+    get currentState(): State { return this._currentState; }
+
     // Blackboard for dynamic variables
     private _blackboard: Map<string, any> = new Map();
 

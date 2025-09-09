@@ -4,12 +4,17 @@ import { IdleState } from './states/IdleState';
 import { FindDestinationState } from './states/FindDestinationState';
 import { MoveToDestinationState } from './states/MoveToDestinationState';
 import { WaitForInteractionState } from './states/WaitForInteractionState';
-const { ccclass, property } = _decorator;
+import { Character } from '../Character';
+const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass('GroceryClerk')
-export class GroceryClerk extends StateMachine {
+@requireComponent(StateMachine)
+export class GroceryClerk extends Character {
+    _stateMachine: StateMachine = null;
+
     protected onEnable(): void {
-        this.addState(IdleState, true)
+        this._stateMachine = this.getComponent(StateMachine);
+        this._stateMachine.addState(IdleState, true)
             .addState(FindDestinationState)
             .addState(MoveToDestinationState)
             .addState(WaitForInteractionState)
@@ -17,34 +22,35 @@ export class GroceryClerk extends StateMachine {
                 IdleState,
                 FindDestinationState,
                 (from, to) => {
-                    return (this._currentState as IdleState).idleDuration <= 0;
+                    return (this._stateMachine.currentState as IdleState).idleDuration <= 0;
                 }
             )
             .addTransition(
                 FindDestinationState,
                 MoveToDestinationState,
                 (from, to) => {
-                    return (this._currentState as FindDestinationState).found;
+                    return (this._stateMachine.currentState as FindDestinationState).found;
                 }
             )
             .addTransition(
                 MoveToDestinationState,
                 WaitForInteractionState,
                 (from, to) => {
-                    return (this._currentState as MoveToDestinationState).isTargetReached;
+                    return (this._stateMachine.currentState as MoveToDestinationState).isTargetReached;
                 }
             )
             .addTransition(
                 WaitForInteractionState,
                 FindDestinationState,
                 (from, to) => {
-                    return (this._currentState as WaitForInteractionState).doneWaiting;
+                    return (this._stateMachine.currentState as WaitForInteractionState).doneWaiting;
                 }
             );
     }
 
-    protected start(): void {
-        this.startSystem();
+    start(): void {
+        super.start();
+        this._stateMachine.startSystem();
     }
 }
 
