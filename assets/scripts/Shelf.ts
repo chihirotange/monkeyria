@@ -78,7 +78,12 @@ export class Shelf extends ResourceBin {
     }
 
     protected onResourceWithdrawn(itemType: ItemType, amount: number) {
-
+        for (let i = 0; i < amount; i++) {
+            let children = this.itemContainer.children;
+            if (children.length > 0) {
+                children[children.length - 1].destroy();
+            }
+        }
     }
 
     getAvailableSpace(): number {
