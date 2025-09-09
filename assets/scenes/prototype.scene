@@ -1142,7 +1142,7 @@
       "__id__": 7
     },
     "spawnInterval": 3,
-    "maxSpawnCount": 5,
+    "maxSpawnCount": 1,
     "_id": "6elyw2xPBPPqDZ7C6O+Cbu"
   },
   {

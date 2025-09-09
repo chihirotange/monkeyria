@@ -19,6 +19,8 @@ export class CustomerManager extends Component {
     @type(CCInteger)
     maxSpawnCount: number = 5;
 
+    private _spawnedCount = 0;
+
     start() {
         this.schedule(this.spawnCustomer, this.spawnInterval, macro.REPEAT_FOREVER);
     }
@@ -32,6 +34,11 @@ export class CustomerManager extends Component {
             let customer = instantiate(this.customerPrefab);
             customer.parent = this.characterContainer;
             customer.setWorldPosition(this.spawnTransform.getWorldPosition());
+            this._spawnedCount++;
+        }
+
+        if (this._spawnedCount >= this.maxSpawnCount) {
+            this.unschedule(this.spawnCustomer);
         }
     }
 }
