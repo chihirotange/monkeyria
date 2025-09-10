@@ -16,7 +16,7 @@ export abstract class State {
 
 export type StateConstructor = new (...args: any[]) => State;
 
-export type CanChangeStateCallback = (from: StateConstructor, to: StateConstructor) => boolean;
+export type CanChangeStateCallback = (from: StateConstructor, to: StateConstructor, system: StateMachine) => boolean;
 
 @ccclass('StateMachine')
 export class StateMachine extends Component {
@@ -77,7 +77,7 @@ export class StateMachine extends Component {
                 const possibleTransitions = this._transitions.get(fromCtor);
                 if (possibleTransitions) {
                     for (const [toCtor, condition] of possibleTransitions) {
-                        if (condition && condition(fromCtor, toCtor)) {
+                        if (condition && condition(fromCtor, toCtor, this)) {
                             const prevState = this._currentState;
                             prevState.onStateExit();
                             this._pendingTransition = { toCtor, prevState };

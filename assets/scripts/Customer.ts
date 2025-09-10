@@ -47,8 +47,15 @@ export class Customer extends Character {
             .addTransition(
                 WaitForInteractionState,
                 CustomerFindDestinationState,
-                (from, to) => {
-                    return (this._stateMachine.currentState as WaitForInteractionState).doneWaiting;
+                (from, to, system) => {
+                    let allFulfilled = true;
+                    for (const [itemType, amount] of this.itemList) {
+                        if (this.getInventory().getResourceAmount(itemType) < amount) {
+                            allFulfilled = false;
+                            break;
+                        }
+                    }
+                    return allFulfilled;
                 }
             );
     }
@@ -65,5 +72,6 @@ export class Customer extends Character {
         let def = resourceDefs[randomIndex];
         // TODO: random amount of item
         this.itemList.set(def.itemType, 3);
+        this.getInventory().setResourceLimit(3);
     }
 }
